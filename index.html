@@ -183,7 +183,31 @@
 <script src="/src/Allan/API_Canvas/notas/grades.js"></script>
 
 
+<script>
+    var req = new XMLHttpRequest();
+        var url = 'https://randomuser.me/api/?results=10';
 
+        function processaDados() {
+            var dados = JSON.parse (req.responseText);
+            var saida = '';
+            for (i = 0; i < dados.results.length; i++) {
+                saida += `<div class="box-cliente">
+                <img src="${dados.results[i].picture.medium}" alt="">
+                <p>${dados.results[i].name.first} ${dados.results[i].name.first} </p>
+                <p>Fone: ${dados.results[i].phone}</p>
+                <p>${dados.results[i].location.city} - ${dados.results[i].location.state}</p>
+                </div>`
+            }
+            document.getElementById('lista-clientes').innerHTML = saida;
+        }
+
+        function getData() {
+            req.onload = processaDados;
+            req.open('GET', url, true);
+            req.send();
+        }
+
+</script>
 
 
 
