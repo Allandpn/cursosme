@@ -14,20 +14,20 @@ function init(){
 
   carregaAtri()
 
-  _token = '11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3BvdgL'
+ // _token = '11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3BvdgL'
 
-  fetch('https://pucminas.instructure.com/api/v1/courses/87896', {
+ var  _token = fetch('https://pucminas.instructure.com/api/v1/courses/87896', {
     method: 'GET',
     headers: {
         'Authorization': 'Bearer 11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3BvdgL',
        // 
     }
 })
-.then(function(response) {
+.then(function() {
 
-  console.log( response)
-}).catch(function (response) {
-  console.log( response)
+  console.log(_token)
+}).catch(function () {
+  console.log( _token)
 });
 
    
