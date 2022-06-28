@@ -19,8 +19,7 @@ function init(){
  
    
 }
-
-
+/*
 const token = "11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3BvdgL"
     const res = fetch( 'https://pucminas.instructure.com/api/v1/courses/48974/modules/222399/items',
     {
@@ -36,9 +35,30 @@ const token = "11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3
         console.log(data)
     })
     .catch((error) => console.log(error.message))
+*/
 
+var req = new XMLHttpRequest();
+        var url = 'https://randomuser.me/api/?results=10';
 
+        function processaDados() {
+            var dados = JSON.parse (req.responseText);
+            var saida = '';
+            for (i = 0; i < dados.results.length; i++) {
+                saida += `<div class="box-cliente">
+                <img src="${dados.results[i].picture.medium}" alt="">
+                <p>${dados.results[i].name.first} ${dados.results[i].name.first} </p>
+                <p>Fone: ${dados.results[i].phone}</p>
+                <p>${dados.results[i].location.city} - ${dados.results[i].location.state}</p>
+                </div>`
+            }
+            document.getElementById('lista-clientes').innerHTML = saida;
+        }
 
+        function getData() {
+            req.onload = processaDados;
+            req.open('GET', url, true);
+            req.send();
+        }
 
 
 
