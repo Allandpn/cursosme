@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="dark">
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/src/Allan/css/main.css">
+    <link rel="stylesheet" href="/src/Allan/css/nav.css">
+    <link rel="stylesheet" href="/src/Allan/css/conteudo.css">
+    <link rel="stylesheet" href="/src/Allan/css/notas.css">
+    <link rel="stylesheet" href="/src/Allan/css/datas.css">
+    <link rel="stylesheet" href="/src/Allan/css/dropdown.css"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@5.8.55/css/materialdesignicons.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+</head>
+
+<body onload="init()">
+
+    <div id="menu-aluno">
+        <nav>
+            <p><i class="fa fa-2x fa-user"></i></br> Conta</p>
+            <p><i class="fa fa-2x fa-circle-o"></i></br>Canvas</p>
+           <!-- <p id="recentes" onclick="openRec()"><i class="fa fa-2x fa-clock-o"></i></br>Recentes</p>-->
+            <p id="favoritos" onclick="openFav()"><i class="fa fa-2x fa-star-o"></i></br>Favoritos</p>
+            <p><i class="fa fa-2x fa-question-circle"></i></br>Ajuda</p>
+            <p><i class="fa fa-2x fa-info"></i></br>About</p>
+        </nav>
+
+
+
+        <div>
+            <div id="mySidefav" class="sidefav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeFav()">&times;</a>
+                <a href="#">Favoritos</a>
+                <li id="myafav"></li>
+                
+            </div>
+            
+            <div id="mySiderec" class="siderec">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeRec()">&times;</a>
+                <a href="#">Recentes</a>
+
+            </div>
+            
+
+            <div class="toggler-container">
+                <div id="theme-toggler">
+                    <span class="mdi mdi-theme-light-dark"></span>
+                </div>
+                <div>
+                    <input id="save-theme" type="checkbox" /> <span id="salvar-texto">Lembrar tema
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+    <main class="dash" id="dash">
+
+        <Header id="cabecalho">
+            <p>Painel do Curso</p>
+            <hr>
+
+        </Header>
+        <div>
+            <div id="conteudo">
+                <div class="container">
+                    <div id="materia" class="coluna1">
+
+                        <li><div>Eixo 1 - Projeto: Aplicações Web - Turma 02 - 2022/1</br><i class="fa fa-2xs fa-check"></i></div></li>
+                        
+
+
+                    </div>
+
+                    <div id="etapa" class="coluna2 grupoA">
+                        <div id="cur_etapas"></div>
+                     
+
+                    </div>
+                    <div id="microfundamento" class="coluna3 grupoA grupoB">
+                        <div id="cur_microfundamento"></div>
+                      
+
+                    </div>
+                    <div id="tema" class="coluna4 grupoA grupoB grupoC">
+                       <div id="cur_temas"></div>
+                     
+
+                    </div>
+                    <div id="aula" class="coluna5 grupoA grupoB grupoC grupoD">
+                        <div id="arv_aulas"></div>
+
+                    </div>
+                </div>
+            </div>
+
+             
+
+            <div id="info">             
+
+                <div id="cronograma" class="cronograma">
+
+                    <div class="datas-titulo">Cronograma do Curso</div>                           
+                                <table id="datas" ></table>                            
+                            </table>
+
+                </div>
+
+                <div id="avaliacoes" class="avaliacoes">
+                    <div class="notas-titulo">Avaliação de Competências</div>                    
+                    <div class="dropdown">
+                        <div class="ativo">
+                            <span id="ativado" class="ativado"></span>
+                            <div class="caret"></div>
+                        </div>
+                        <ul id="menu" class="menu">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <table class="avalia notas-cabecalho">
+                        <tr>
+                            <th id="tit-hab">Habilidades</th>
+                            <th>Status</th>
+                        </tr>
+                    </table>
+                        <table id="habilidade" class="avalia">
+                            <tr class="habil">
+                            </tr>
+                        </table>
+                </div>
+            </div>       
+        </div>
+    </main>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/src/Nikolas/API_Canvas/etapas.js"></script>
+<script src="/src/Nikolas/API_Canvas/unidades.js"></script>
+<script src="/src/Nikolas/API_Canvas/temas.js"></script>
+<script src="/src/Nikolas/API_Canvas/microfundamentos.js"></script>
+<script src="/src/Nikolas/API_Canvas/init_course.js"></script>
+
+
+
+<script src="/src/Allan/js/main.js"></script>
+<script src="/src/Allan/js/nav.js"></script>
+<script src="/src/Allan/js/conteudo.js"></script>
+<script src="/src/Allan/js/dropdown.js"></script>
+<script src="/src/Allan/js/course-tree.js"></script>
+<script src="/src/Allan/js/notas.js"></script>
+<script src="/src/Allan/js/datas.js"></script>
+
+
+<script src="/src/Allan/API_Canvas/assigments.js"></script>
+<script src="/src/Allan/API_Canvas/notas/grades.js"></script>
+
+
+
+
+
+
+</html>
