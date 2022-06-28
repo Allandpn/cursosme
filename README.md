@@ -1,2 +1,2 @@
 # cursosme
-acesso a plataforma do curso SI da PUC Minas Virtual
+projetos do curso de S.I da PUC Minas VIrtual
