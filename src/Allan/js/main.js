@@ -20,8 +20,7 @@ function init(){
     method: 'GET',
     headers: {
         'Authorization': 'Bearer ' + _token,
-        "crossDomain": true,
-	      "Access-Control-Allow-Origin": "*" // 
+         // 
     }
 })
 .then(function(response) {
@@ -31,7 +30,6 @@ function init(){
 }).catch(function (response) {
   id = response;
 });
-
    
 }
 
