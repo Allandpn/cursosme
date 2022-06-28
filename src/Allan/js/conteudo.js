@@ -4,7 +4,7 @@ var db_curso_ord = JSON.parse(localStorage.getItem('db_curso'))
 
 listarEtapas(db_curso_ord)
 
-console.log(db_curso_ord)
+
 
 //lista as etapas do curso
 function listarEtapas(db_curso_ord) {

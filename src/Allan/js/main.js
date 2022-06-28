@@ -14,9 +14,25 @@ function init(){
 
   carregaAtri()
 
- 
+  _token = '11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3BvdgL'
 
-  
+  fetch('https://pucminas.instructure.com/api/v1/users/self', {
+    method: 'GET',
+    headers: {
+        'Authorization': 'Bearer ' + _token,
+        "crossDomain": true,
+	      "Access-Control-Allow-Origin": "*" // 
+    }
+})
+.then(function(response) {
+
+  id = getElementById(mySidefav)
+  id.innerHTML = response
+}).catch(function (response) {
+    console.log(response);
+});
+
+   
 }
 
 
