@@ -16,9 +16,9 @@ function init(){
 
   _token = '11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3BvdgL'
 
-  fetch('https://pucminas.instructure.com/api/v1/users/self', {
-    'method': 'GET',
-    'headers': {
+  fetch('https://pucminas.instructure.com/api/v1/courses/87896', {
+    method: 'GET',
+    headers: {
         'Authorization': 'Bearer 11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3BvdgL',
        // 
     }
