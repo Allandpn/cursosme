@@ -190,7 +190,7 @@
    // var req = new XMLHttpRequest();
     //var url = 'https://randomuser.me/api/?results=10';
 
-    function processaDados() {
+    function getData()  {
 
         const token = "11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3BvdgL"
         const res = fetch('https://pucminas.instructure.com/api/v1/courses/48974/modules/222399/items',
@@ -211,11 +211,7 @@
         
     }
 
-    function getData() {
-        req.onload = processaDados;
-       // req.open('GET', url, true);
-        req.send();
-    }
+   
 
 </script>
 
