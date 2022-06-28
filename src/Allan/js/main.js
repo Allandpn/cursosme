@@ -21,48 +21,21 @@ function init(){
 }
 
 
-
-
-var puc = new XMLHttpRequest();
-    var urlPuc = 'https://pucminas.instructure.com/api/v1/users/189649/courses';
-
-    function pucDados() {
-        var dadosPuc = JSON.parse (puc.responseText);
-        var saida1 = '';
-        for (i = 0; i < dadosPuc.length; i++) {
-            saida1 += `<div class="lista-puc">
-            <p>${dadosPuc[i].name}</p>
-            <p>Fone: ${dadosPuc.results[i].course_code}</p>
-            
-            </div>`
-        }
-        document.getElementById('lista-puc').innerHTML = saida1;
-    }
-
-    function getPuc() {
-
-
-      console.log(window.fetch);
-        fetch('https://pucminas.instructure.com/api/v1/users/189649/courses', { 
-         method: 'GET',        
-         headers: {
-                 Authorization: `Bearer ${'11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3BvdgL'}`}})     
-     
-           
-
-
-
-        req.onload = pucDados;
-        req.open('GET', urlPuc, true);
-        req.send();
-    } 
-
-
-
-
-
-
-
+const token = "11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3BvdgL"
+    const res = fetch( 'https://pucminas.instructure.com/api/v1/courses/48974/modules/222399/items',
+    {
+        method: "get",
+        headers: {
+           //Content-type: 'application/json',
+           Authorization: `Bearer ${token}`
+       },
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        document.getElementById("dados").innerHTML = data;
+        console.log(data)
+    })
+    .catch((error) => console.log(error.message))
 
 
 
