@@ -20,21 +20,7 @@ function init(){
    
 }
 /*
-const token = "11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3BvdgL"
-    const res = fetch( 'https://pucminas.instructure.com/api/v1/courses/48974/modules/222399/items',
-    {
-        method: "get",
-        headers: {
-           //Content-type: 'application/json',
-           Authorization: `Bearer ${token}`
-       },
-    })
-    .then((res) => res.json())
-    .then((data) => {
-        document.getElementById("dados").innerHTML = data;
-        console.log(data)
-    })
-    .catch((error) => console.log(error.message))
+
 */
 
 

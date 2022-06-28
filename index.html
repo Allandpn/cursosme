@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/src/Allan/css/conteudo.css">
     <link rel="stylesheet" href="/src/Allan/css/notas.css">
     <link rel="stylesheet" href="/src/Allan/css/datas.css">
-    <link rel="stylesheet" href="/src/Allan/css/dropdown.css"> 
+    <link rel="stylesheet" href="/src/Allan/css/dropdown.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@5.8.55/css/materialdesignicons.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -27,7 +27,7 @@
         <nav>
             <p><i class="fa fa-2x fa-user"></i></br> Conta</p>
             <p><i class="fa fa-2x fa-circle-o"></i></br>Canvas</p>
-           <!-- <p id="recentes" onclick="openRec()"><i class="fa fa-2x fa-clock-o"></i></br>Recentes</p>-->
+            <!-- <p id="recentes" onclick="openRec()"><i class="fa fa-2x fa-clock-o"></i></br>Recentes</p>-->
             <p id="favoritos" onclick="openFav()"><i class="fa fa-2x fa-star-o"></i></br>Favoritos</p>
             <p><i class="fa fa-2x fa-question-circle"></i></br>Ajuda</p>
             <p><i class="fa fa-2x fa-info"></i></br>About</p>
@@ -40,15 +40,15 @@
                 <a href="javascript:void(0)" class="closebtn" onclick="closeFav()">&times;</a>
                 <a href="#">Favoritos</a>
                 <li id="myafav"></li>
-                
+
             </div>
-            
+
             <div id="mySiderec" class="siderec">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeRec()">&times;</a>
                 <a href="#">Recentes</a>
 
             </div>
-            
+
 
             <div class="toggler-container">
                 <div id="theme-toggler">
@@ -89,25 +89,28 @@
                 <div class="container">
                     <div id="materia" class="coluna1">
 
-                        <li><div>Eixo 1 - Projeto: Aplicações Web - Turma 02 - 2022/1</br><i class="fa fa-2xs fa-check"></i></div></li>
-                        
+                        <li>
+                            <div>Eixo 1 - Projeto: Aplicações Web - Turma 02 - 2022/1</br><i
+                                    class="fa fa-2xs fa-check"></i></div>
+                        </li>
+
 
 
                     </div>
 
                     <div id="etapa" class="coluna2 grupoA">
                         <div id="cur_etapas"></div>
-                     
+
 
                     </div>
                     <div id="microfundamento" class="coluna3 grupoA grupoB">
                         <div id="cur_microfundamento"></div>
-                      
+
 
                     </div>
                     <div id="tema" class="coluna4 grupoA grupoB grupoC">
-                       <div id="cur_temas"></div>
-                     
+                        <div id="cur_temas"></div>
+
 
                     </div>
                     <div id="aula" class="coluna5 grupoA grupoB grupoC grupoD">
@@ -117,20 +120,20 @@
                 </div>
             </div>
 
-             
 
-            <div id="info">             
+
+            <div id="info">
 
                 <div id="cronograma" class="cronograma">
 
-                    <div class="datas-titulo">Cronograma do Curso</div>                           
-                                <table id="datas" ></table>                            
-                            </table>
+                    <div class="datas-titulo">Cronograma do Curso</div>
+                    <table id="datas"></table>
+                    </table>
 
                 </div>
 
                 <div id="avaliacoes" class="avaliacoes">
-                    <div class="notas-titulo">Avaliação de Competências</div>                    
+                    <div class="notas-titulo">Avaliação de Competências</div>
                     <div class="dropdown">
                         <div class="ativo">
                             <span id="ativado" class="ativado"></span>
@@ -151,12 +154,12 @@
                             <th>Status</th>
                         </tr>
                     </table>
-                        <table id="habilidade" class="avalia">
-                            <tr class="habil">
-                            </tr>
-                        </table>
+                    <table id="habilidade" class="avalia">
+                        <tr class="habil">
+                        </tr>
+                    </table>
                 </div>
-            </div>       
+            </div>
         </div>
     </main>
 </body>
@@ -184,31 +187,37 @@
 
 
 <script>
-    var req = new XMLHttpRequest();
-        var url = 'https://randomuser.me/api/?results=10';
+   // var req = new XMLHttpRequest();
+    //var url = 'https://randomuser.me/api/?results=10';
 
-        function processaDados() {
-            var dados = JSON.parse (req.responseText);
-            var saida = '';
-            for (i = 0; i < dados.results.length; i++) {
-                saida += `<div class="box-cliente">
-                <img src="${dados.results[i].picture.medium}" alt="">
-                <p>${dados.results[i].name.first} ${dados.results[i].name.first} </p>
-                <p>Fone: ${dados.results[i].phone}</p>
-                <p>${dados.results[i].location.city} - ${dados.results[i].location.state}</p>
-                </div>`
-            }
-            document.getElementById('lista-clientes').innerHTML = saida;
-        }
+    function processaDados() {
 
-        function getData() {
-            req.onload = processaDados;
-            req.open('GET', url, true);
-            req.send();
-        }
+        const token = "11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3BvdgL"
+        const res = fetch('https://pucminas.instructure.com/api/v1/courses/48974/modules/222399/items',
+            {
+                method: "get",
+                headers: {
+                    //Content-type: 'application/json',
+                    Authorization: `Bearer ${token}`
+                },
+            })
+            .then((res) => res.json())
+            .then((data) => {
+                document.getElementById('lista-clientes').innerHTML = data;
+                console.log(data)
+            })
+            .catch((error) => console.log(error.message))
+
+        
+    }
+
+    function getData() {
+        req.onload = processaDados;
+       // req.open('GET', url, true);
+        req.send();
+    }
 
 </script>
-
 
 
 </html>
