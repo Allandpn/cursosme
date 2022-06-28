@@ -24,22 +24,6 @@ function init(){
 
 
 
-var  resposta = fetch('https://pucminas.instructure.com/api/v1/courses/87896', {
-    method: 'GET',
-    headers: {
-        'Authorization': 'Bearer 11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3BvdgL',
-       // 
-    }
-})
-.then(function() {
-  texto = document.getElementById(aboutico)
-  texto.innerHTML = JSON.parse(resposta)
-}).catch(function () {
-  texto = document.getElementById(aboutico)
-  texto.innerHTML = JSON.parse(resposta)
-});
-
-console.log("teste")
 
 
 
