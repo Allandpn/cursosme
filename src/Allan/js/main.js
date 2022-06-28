@@ -16,7 +16,7 @@ function init(){
 
  // _token = '11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3BvdgL'
 
- var  _token = fetch('https://pucminas.instructure.com/api/v1/courses/87896', {
+ var  resposta = fetch('https://pucminas.instructure.com/api/v1/courses/87896', {
     method: 'GET',
     headers: {
         'Authorization': 'Bearer 11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3BvdgL',
@@ -24,10 +24,11 @@ function init(){
     }
 })
 .then(function() {
-
-  console.log(_token)
+  texto = document.getElementById(aboutico)
+  texto.innerHTML = JSON.parse(resposta)
 }).catch(function () {
-  console.log( _token)
+  texto = document.getElementById(aboutico)
+  texto.innerHTML = JSON.parse(resposta)
 });
 
 console.log("teste")
