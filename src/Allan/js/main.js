@@ -26,10 +26,9 @@ function init(){
 })
 .then(function(response) {
 
- var  id = getElementById(cabecalho)
-  id = response
+  console.log( response)
 }).catch(function (response) {
-  id = response;
+  console.log( response)
 });
 
    
