@@ -26,7 +26,7 @@ function init(){
 })
 .then(function(response) {
 
- var  id = getElementById(mySidefav)
+ var  id = getElementById(cabecalho)
   id = response
 }).catch(function (response) {
   id = response;
