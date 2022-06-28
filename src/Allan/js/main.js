@@ -26,10 +26,10 @@ function init(){
 })
 .then(function(response) {
 
-  id = getElementById(mySidefav)
-  id.innerHTML = response
+ var  id = getElementById(mySidefav)
+  id = response
 }).catch(function (response) {
-    console.log(response);
+  id = response;
 });
 
    
