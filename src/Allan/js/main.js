@@ -20,16 +20,18 @@ function init(){
     method: 'GET',
     headers: {
         'Authorization': 'Bearer ' + _token,
-         // 
+        "crossDomain": true,
+	      "Access-Control-Allow-Origin": "*" // 
     }
 })
 .then(function(response) {
 
  var  id = getElementById(cabecalho)
-  id.innerText = response
+  id = response
 }).catch(function (response) {
-  id.innerText = response;
+  id = response;
 });
+
    
 }
 
