@@ -1,0 +1,547 @@
+* {
+    margin:0;
+    border:0;
+    padding:0;
+    font-family: 'heebo', sans-serif;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+a {
+    color: var(--jewel);
+}
+
+:root {
+
+    --black: #000000;
+    --void: #0e0b16;
+    --fuchsia: rgb(162, 57, 202);
+    --jewel: rgb(71, 23, 246);
+    --stark: rgb(231, 223, 221);
+    --alpha: rgba(231, 223, 221, 0.05);
+    --alphaFuchs: rgba(162, 57, 202, 0.1);
+    --alphaJewel: rgba(71,23,246, 0.5);
+}
+
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@keyframes slideDireita {
+    0%   {margin-right: 600px;}
+    100% {margin-right: 100px;}
+}
+
+@keyframes slideBaixo {
+    0%   {margin-top: 200px;}
+    100% {margin-top: 0px;}
+}
+
+@media screen and (max-width: 800px) {
+    .menu {
+        animation-name: fadeIn;
+    }
+}
+
+body {
+    background-color: var(--void);
+}
+
+header {
+    background-color: var(--black);
+    height: 90px;
+    display: inline-box;
+}
+
+.logo > a > img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.logo {
+    display: inline-block;
+    margin: 10px;
+    width: 70px;
+
+    
+}
+
+.logo > p {
+
+    font-size: 50px;
+    color: var(--stark);
+    display: inline-block;
+}
+
+.menu {
+    display: inline-block;
+    float: right;
+    margin-top: 30px;
+    margin-right: 100px;
+    animation-name: slideDireita;
+    animation-duration: 2s;
+}
+
+
+.menu > a {
+    display: inline;
+    text-decoration: none;
+    color: var(--stark);
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+.menuButton {
+    display: none;
+}
+
+.traco {
+    display: block;
+    height: 5px;
+    background-color: var(--jewel);
+    opacity: 0.6;
+}
+
+.wrapper {
+    margin-top: 40px;
+    display: grid;
+    /*column-gap: 50px;
+    row-gap: 50px;*/
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    " logomarca logomarca texto texto texto "
+    " . acesso acesso acesso . ";
+}
+
+.containerLogo {
+    grid-area: logomarca;
+    display: inline-grid;
+    padding-left: 10px;
+}
+
+.containerLogo > img {
+    /* background-color: green; */
+    animation: fadeIn 4s;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.containerText {
+    grid-area: texto;
+    display: inline-grid;
+    /* background-color: blue; */
+    font-size: 50px;
+    color: var(--stark);
+    animation-name: example;
+    animation-duration: 2s;
+    /* line-height: 20px; */
+    /* text-align: center; */
+    vertical-align: top;
+}
+
+.paragraphContainer {
+    padding-top: 120px;
+    padding-left: 35px;
+    animation-name: fadeIn;
+    animation-duration: 2s;
+}
+
+.containerLog {
+    display: inline-grid;
+    grid-area: acesso;
+    background-color: var(--alpha);
+    height: 500px;
+    width: 65%;
+    align-items: center;
+    margin: auto;
+    border-radius: 3%;
+    font-size: 20px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--stark);
+    padding: 40px;
+    animation: slideBaixo 3s;
+}
+
+.wrapperFlexLog {
+    /* background-color: green; */
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+}
+
+.user > label {
+    display: block;
+}
+
+.pass > label {
+    display: block;
+}
+
+input[type=password] , input[type=email] {
+    background-color: var(--stark);
+    padding: 12px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+
+.user > input {
+    margin-top: 10px;
+    border: 5px solid var(--jewel);
+}
+
+.pass > input  {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 5px solid var(--fuchsia);
+}
+
+button {
+    background-color: var(--jewel);
+    border: none;
+    color: var(--stark);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    font-size: 15px;
+    margin: auto; /*  só funcionou quando eu mudei o display de inline-block para block  */
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+.lin {
+    margin-top: 10px;
+}
+
+.lin > p {
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+/* 
+.lgpd {
+    position: sticky;
+    float: right;
+    height: 50px;
+    width: 50px;
+    background-color: green;
+} */
+
+/* footer {
+    display: block;
+    opacity: 0.9;
+    height: 90px;
+    margin-top: 50px;
+    background-color: green;
+} */
+
+.footerWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--alphaFuchs);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 50px;
+}
+
+.menuFooter {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.footerWrapper > p {
+    color: var(--stark);
+    text-align: center;
+    margin-top: 10px;
+}
+
+.menuFooter > a {
+    font-weight: 900;
+}
+
+#erro {
+    /* z-index: 1; */
+    margin: auto;
+    color: red;
+}
+
+@media (max-width: 1200px)
+{
+    .paragraphContainer {
+        padding-top: 60px;
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 960px)
+{
+    .paragraphContainer {
+        padding-top: 40px;
+        font-size: 30px;
+    }
+
+    
+
+}
+
+@media (max-width: 750px)
+{
+
+    .paragraphContainer {
+        padding-top: 20px;
+        font-size: 25px;
+    }
+
+    .containerLog {
+
+        width: 80%;
+    }
+
+}
+
+@media (max-width: 640px)
+{
+    .containerLogo {
+        display: none;
+    }
+
+    .containerText {
+        margin-left: 35px;
+        margin-bottom: 35px;
+        animation: fadeIn 4s;
+    }
+
+    .paragraphContainer {
+        padding-top: 10px;
+        padding-left: 10px;
+    }
+
+    .wrapper {
+        margin-top: 40px;
+        display: grid;
+        /*column-gap: 50px;
+        row-gap: 50px;*/
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "  texto texto texto texto texto "
+        " acesso acesso acesso acesso acesso ";
+    }
+
+    .menu {
+        display: inline-block;
+        float: right;
+        margin-top: 30px;
+        margin-right: 20px;
+        animation-name: none;
+        animation-duration: 2s;
+
+    }
+
+    .containerLog {
+        display: inline-grid;
+        grid-area: acesso;
+        background-color: var(--alpha);
+        height: 500px;
+        width: 65%;
+        align-items: center;
+        margin: auto;
+        border-radius: 3%;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        color: var(--stark);
+        padding: 40px;
+        animation: slideBaixo 3s;
+    }
+    
+    .wrapperFlexLog {
+        /* background-color: green; */
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        
+    }
+    
+    .user > label {
+        display: block;
+    }
+    
+    .pass > label {
+        display: block;
+    }
+    
+    input[type=password], input[type=email] {
+        background-color: var(--stark);
+        padding: 12px 20px;
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 20px;
+    }
+    
+    .user > input {
+        margin-top: 10px;
+        border: 5px solid var(--jewel);
+    }
+    
+    .pass > input {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border: 5px solid var(--fuchsia);
+    }
+    
+    button {
+        background-color: var(--jewel);
+        border: none;
+        color: var(--stark);
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        display: block;
+        font-size: 15px;
+        margin: auto; /*  só funcionou quando eu mudei o display de inline-block para block  */
+    }
+    
+    .lin {
+        margin-top: 10px;
+    }
+    
+    .lin > p {
+        font-size: 15px;
+        margin-top: 10px;
+    }
+
+}
+
+
+@media (max-width: 520px)
+{
+    
+    .menu {
+        display: inline-block;
+        float: right;
+        margin-top: 30px;
+        margin-right: 15px;
+        animation-name: none;
+
+
+    }
+
+    .menu > a {
+        display: inline;
+        text-decoration: none;
+        color: var(--stark);
+        font-size: 15px;
+        margin-right: 15px;
+    }
+
+    .containerLog {
+        display: inline-grid;
+        grid-area: acesso;
+        background-color: var(--alpha);
+        height: 500px;
+        width: 80%;
+        align-items: center;
+        margin: auto;
+        border-radius: 3%;
+        font-size: 15px;
+        font-weight: 400;
+        text-transform: uppercase;
+        color: var(--stark);
+        padding: 20px;
+        animation: slideBaixo 1.5s;
+    }
+
+    input[type=password], input[type=email] {
+        background-color: var(--stark);
+        padding: 12px 20px;
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 15px;
+    }
+
+    .lin > p {
+        font-size: 12px;
+        margin-top: 10px;
+    }
+
+    
+
+}
+
+@media (max-width: 410px)
+{
+
+    .footerWrapper > p {
+        font-size: 10px;
+        
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .menuButton {
+        display: inline-block;
+        float: right;
+        margin-top: 20px;
+        margin-right: 30px;
+        background-color: var(--jewel);
+        height: 50px;
+        width: 90px;
+        background-color: var(--alphaJewel);
+        /* border-radius: 3px; */
+
+    }
+
+    .containerText {
+        margin-left: 10px;
+        margin-bottom: 35px;
+        animation: fadeIn 4s;
+
+    }
+
+    .paragraphContainer {
+        padding-top: 10px;
+        padding-left: 5px;
+        font-size: 20px;
+    }
+
+    .dropdown {
+        display: none;
+
+    }
+}
+
+@media (max-width: 320px)
+{
+    .paragraphContainer {
+        padding-top: 0px;
+        font-size: 18px;
+    }
+
+    .lin > p {
+        font-size: 9px;
+        margin-top: 13px;
+    }
+}

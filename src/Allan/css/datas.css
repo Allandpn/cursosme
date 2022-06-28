@@ -1,0 +1,124 @@
+
+html[data-theme="light"] {
+   
+    --5-box: rgba(190, 206, 221, 0.2);      
+    --5-menu-text: rgb(94, 119, 140);    
+    --5-menu-selecao: #ffffff;
+    --5-border: rgba(170, 169, 169, 0.5);
+    --5-box: rgba(213, 219, 224, 0.39);    
+    --5-aba-rec: rgb(255, 255, 255);
+    --5-aba-fav: rgb(255, 255, 255);
+    --5-nota: #ccc;
+    --5-a-hover-tex: #516af8;
+    --5-score-turma: rgba(94, 119, 140, 0.658); 
+     
+}
+
+html[data-theme="dark"] {
+   
+    --5-box: rgba(48, 38, 26, 0.678);    
+    --5-menu-text: rgb(146, 143, 143);
+    --5-border: #f07b0d56;    
+    --5-box: rgba(87, 84, 81, 0.425); 
+    --5-aba-rec: rgb(0, 0, 0);
+    --5-aba-fav: rgb(0, 0, 0);
+    --5-nota: rgb(70, 67, 67);
+    --5-a-hover-tex: #f07b0d;
+    --5-score-turma: #fc9432a2; 
+}
+
+
+
+.datas-titulo{
+  margin: 15px;
+  text-align: center;
+  font-size: 16px;
+  color: var(--4-menu-text);
+  font-weight: bold;  
+  
+}
+
+#datas { 
+  position: relative;
+  margin: auto;
+  width: 95%;
+}
+
+.pass {
+  background-color: var(--5-box);
+}
+
+.cont {
+    position: relative;
+    width: 70%;    
+    margin-left: 50px;
+    
+}
+
+.crono th {
+    padding-bottom: 5px;
+    color: var(--5-menu-text);
+    margin: 5px;
+    text-align: center;
+    font-size: 15px;
+    border-bottom-width: 2px; 
+    border-bottom-style: solid;
+    border-bottom-color:  var(--5-border);   
+    
+}
+
+.crono td {
+    padding-top: 5px;
+    color: var(--5-menu-text);
+    padding: 5px;
+    font-size: 14px;   
+    text-align: center;
+    border-bottom-width: 1px; 
+    border-bottom-style: solid;
+    border-bottom-color:  var(--5-border);
+    
+}
+
+.link_ativ{
+  color: var(--5-menu-text);
+ 
+}
+
+.link_ativ:hover{
+  color: var(--5-a-hover-tex);
+}
+
+/*
+    .crono tr:nth-child(even) {
+        background-color: var(--4-box);
+      }
+*/
+    
+  .progress-bar{
+    --progress: 50;
+    height: 16px;
+    padding: 1px;
+    background-color: var(--5-nota);
+    border-radius: 5px;
+    display: flex;
+    position: relative;
+  }
+  
+  .valor{
+    display: flex;
+    position: relative;
+    content: "";
+    height: 16px;
+  /*  width: calc(var(--progress) * 1%);*/
+    background-color: hsl( calc(1 * 1.2) , 80%, 50%);
+    transition: all 0.2s ease;   
+  }
+  
+  .turma{
+    display: flex;
+    position: relative;    
+    content: "";
+    height: 8px;
+    background-image: linear-gradient(to left, var(--5-score-turma), var(--5-box));
+    transition: all 0.2s ease;   
+  }

@@ -1,0 +1,69 @@
+html[data-theme="light"] {
+   
+    --4-box: rgba(190, 206, 221, 0.2);      
+    --4-menu-text: rgb(94, 119, 140);    
+    --4-menu-selecao: #ffffff;
+    --4-border: rgba(170, 169, 169, 0.5);    
+    
+    --4-aba-rec: rgb(255, 255, 255);
+    --4-aba-fav: rgb(255, 255, 255);
+     
+}
+
+html[data-theme="dark"] {
+   
+    --4-box: rgba(48, 38, 26, 0.678);    
+    --4-menu-text: rgb(146, 143, 143);
+    --4-border: #f07b0d56;    
+    
+    --4-aba-rec: rgb(0, 0, 0);
+    --4-aba-fav: rgb(0, 0, 0); 
+}
+
+
+
+
+
+.avaliacoes {    
+    overflow: auto;
+    padding-top: 20px;
+    
+}
+
+.avalia {
+    position: relative;
+    width: 90%;
+    margin: auto;
+}
+
+
+.avaliacoes th {
+    
+    padding-bottom: 5px;
+    color: var(--4-menu-text);
+    margin: 5px;
+    text-align: center;
+    font-size: 13px;
+    
+}
+
+.avaliacoes td {
+    padding: 5px;
+    color: var(--4-menu-text);
+    margin: 10px;
+    font-size: 13px;
+    text-align: center;
+    
+}
+
+.habil {
+    width: 75%;
+}
+
+.avalia tr:nth-child(even) {
+    background-color: var(--4-box);
+  }
+
+  td span {
+      font-size: 10px;
+  }

@@ -1,0 +1,32 @@
+
+
+
+    /* geral*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Helvetica, sans-serif;
+    color: #323232;
+    border: none;
+    }
+
+    input, label {
+      display: block;
+      width: 100%;
+    }
+
+input:focus, label focus {
+    outline: none;
+}
+
+a {
+  color: #e60084;
+}
+
+body {
+  padding-top: 5vh; /* view height -> 5% da tela */
+  background-image: url(C:\Users\Kahm\Documents\GitHub\pmv-si-2022-1-e1-proj-web-t2-3a\src\Renato\img);
+  background-size: cover;
+  background-position-y: -150px ;
+}

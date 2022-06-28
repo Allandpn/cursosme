@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/conteudo.css">
+    <link rel="stylesheet" href="../css/notas.css">
+    <link rel="stylesheet" href="../css/datas.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@5.8.55/css/materialdesignicons.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+
+
+</head>
+
+<body onload="calculaPontuacao()">
+   
+
+    <div id="menu-aluno">
+        <nav>
+            <p id="conta" onclick="openCon()"><i class="fa fa-2x fa-user"></i></br>Conta</p>
+            <p id="canvas" onclick="openCan()"><i class="fa fa-2x fa-circle-o"></i></br><a href="https://pucminas.instructure.com/login/canvas " target="_blank">Canvas</a></p>
+            <p id="recentes" onclick="openRec()"><i class="fa fa-2x fa-clock-o"></i></br>Recentes</p>
+            <p id="favoritos" onclick="openFav()"><i class="fa fa-2x fa-star-o"></i></br>Favoritos</p>
+            <p id="ajuda" onclick="openAju()"><i class="fa fa-2x fa-question-circle"></i></br>Ajuda</p>
+            <p id="about" onclick="openAbo()"><i class="fa fa-2x fa-info"></i></br>About</p>
+        </nav>
+
+
+        
+
+        <div>
+            
+            
+            <div id="mySidefav" class="sidefav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeFav()">&times;</a>
+                <a href="#">Favoritos</a>
+                <center></center>
+            </div>
+            
+            <div id="mySiderec" class="siderec">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeRec()">&times;</a>
+                <a href="#">Recentes</a>
+                <center></center>
+                        </div>
+            <div id="mySideaju" class="sideaju">
+                 <a href="javascript:void(0)" class="closebtn" onclick="closeAju()">&times;</a>
+                 <a href="#">Ajuda</a>
+                
+                <center> 1- Utilize o menu lateral ao lado 
+                    <br>
+                    esquerdo para verificar 
+                    <br>
+                    sua conta e seu nível, favoritar 
+                    <br>
+                    suas matérias, verificar suas 
+                    <br>
+                    páginas recentes e etc.
+                    <br> 2- Ao lado direito do painel, verifique o 
+                    <br>
+                    progresso de suas matérias e datas de conclusão
+                    e logo mais a direita suas habilidades, e veja como
+                    <br>
+                    está se saindo em relação a elas.
+                    <br> 3- Logo acima no botão de SISTEMAS DE INFORMAÇÃO, encontra-se 
+                    <br>
+                    a arvore de estudos
+                    onde você pode tambem verificar se as aulas ja foram vistas ou não.
+                    
+                    <br>
+                    <br> BONS ESTUDOS</center>
+                
+                               </div>  
+                <div id="mySideabo" class="sideabo">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeAbo()">&times;</a>
+                    <a href="#">About</a>
+                   <center>O projeto 3A tem como objetivo principal 
+                    trazer aos usuários do CANVAS maior facilidade
+                    e visibilidade de informações e orientação ao usuário 
+                    para 
+                    <br>
+                    roteiro de estudos.
+                        <br>
+                        <br>
+                        <br>
+                        Integrantes do grupo
+                        <li>Allan</li>
+                        <li>Nikolas</li>
+                        <li>Renato</li>
+                        <li>Vinicius</li>
+
+                        <br>
+                        <br>
+                        <br>
+                        E-MAIL: grupo3a@pucminas.com.br
+                        CONTATO: 2121-1234</center> 
+                </div>
+                <div id="mySidecon" class="sidecon">
+                                        
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeCon()">&times;</a>
+                    <a href="#">Conta</a>
+                    
+                    <p>
+                        
+                    </p>
+                     <center><img src="perf11.png" alt=""></center> 
+                     <div class="container-barra-progress">
+                         <div class="barra-progress-vazia">
+                            
+                         <div class="barra-progress">
+                           
+
+                         </div>    
+                         </div>
+                         <div class="porcentagem-barra-progress">
+                            <link rel="stylesheet" href="barra.js">
+                            <td id="score_aluno">75%</td>
+                         </div>
+                     </div>
+                     
+                    
+                            
+                     <center>NOME DO ALUNO<center>  
+                   <br>
+                   
+                   
+                        <center>E-MAIL DO ALUNO</center>
+                    <br>
+                    <center>CONTATO DO ALUNO</center>
+                    <scriptsrc="~/lib/jquery/dist/jquery.js"></script>
+                    <script src="~/js/barra.js"></script>
+                    <link href="~/css/barra.css" rel="stylesheet" />
+                        
+                   
+                    
+                </div>
+                
+                
+                
+            <div class="toggler-container">
+                <div id="theme-toggler">
+                    <span class="mdi mdi-theme-light-dark"></span>
+                </div>
+                <div>
+                    <input id="save-theme" type="checkbox" /> <span id="salvar-texto">Lembrar tema
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+    <main class="dash" id="dash">
+
+        <Header id="cabecalho">
+            <p>Painel do Curso</p>
+            <hr>
+        </Header>
+        <div >
+            <div id="conteudo">
+                <div class="container">
+                    <div id="materia" class="coluna1">
+
+                        <li>Sistemas de Informação</br><i class="fa fa-2xs fa-check"></i></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+
+
+                    </div>
+
+                    <div id="etapa" class="coluna2 grupoA">
+
+
+                        <li>Etapa 1</br><i class="fa fa-2xs fa-check"></i></li>
+                        <li>Etapa 2</br><i class="fa fa-2xs fa-check"></i></li>
+                        <li>Etapa 3</br><i class="fa fa-2xs fa-check"></i></li>
+                        <li>Etapa 4</br><i class="fa fa-2xs fa-check"></i></li>
+                        <li>Etapa 5</br><i class="fa fa-2xs fa-check"></i></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+
+
+                    </div>
+                    <div id="microfundamento" class="coluna3 grupoA grupoB">
+
+
+                        <li>Introdução à Computação - U1</br><i class="fa fa-2xs fa-check"></i></li>
+                        <li>Arquitetura Empresarial e da Tecnologia da Informação - U1</br><i
+                                class="fa fa-2xs fa-check"></i></li>
+                        <li>Arquitetura Empresarial e da Tecnologia da Informação - U2</br><i
+                                class="fa fa-2xs fa-check"></i></li>
+                        <li>Introdução à Computação - U2</br><i class="fa fa-2xs fa-check"></i></li>
+                        <li>Matemática Básica - U1</br><i class="fa fa-2xs fa-check"></i></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+
+
+                    </div>
+                    <div id="tema" class="coluna4 grupoA grupoB grupoC">
+
+
+                        <li>Tema 1</br><i class="fa fa-2xs fa-check"></i></li>
+                        <li>Tema 2</br><i class="fa fa-2xs fa-check"></i></li>
+                        <li>Tema 3</br><i class="fa fa-2xs fa-check"></i></li>
+                        <li>Tema 2</br><i class="fa fa-2xs fa-check"></i></li>
+                        <li>Síntese e referências</br><i class="fa fa-2xs fa-check"></i></li>
+                        <li>ATIVIDADE OBJETIVA</br><i class="fa fa-2xs fa-check"></i></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+
+
+                    </div>
+                    <div id="aula" class="coluna5 grupoA grupoB grupoC">
+
+
+                        <li>Introdução</br><i class="fa fa-2xs fa-check"></i><i class="fa fa-2xs fa-star-o"></i></li>
+                        <li>Conceitos de Hardware e Software</br><i class="fa fa-2xs fa-check"></i><i
+                                class="fa fa-2xs fa-star-o"></i></li>
+                        <li>História e Paradigmas da Computação</br><i class="fa fa-2xs fa-check"></i><i
+                                class="fa fa-2xs fa-star-o"></i></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="info">
+
+
+                <div id="cronograma" class="cronograma">
+                    <table class="crono ">
+                        <tr>
+                            <th>Data</th>
+                            <th></th>
+                            <th class="cont">Matéria</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>02 Mai - 08 Mai</td>
+                            <td></td>
+                            <td>
+                                <div></div>Lógica Computacional - U1
+                            </td>
+                            <td>100%</td>
+                        </tr>
+                        <tr>
+                            <td>09 Mai - 15 Mai</td>
+                            <td></td>
+                            <td>
+                                <div></div>Algoritimos e Lógica de Programação - U1
+                            </td>
+                            <td>100%</td>
+                        </tr>
+                        <tr>
+                            <td>16 Mai - 22 Mai</td>
+                            <td></td>
+                            <td>
+                                <div></div>Lógica Computacional - U2
+                            </td>
+                            <td>100%</td>
+                        </tr>
+                        <tr>
+                            <td>23 mai - 29 Mai</td>
+                            <td></td>
+                            <td>
+                                <div></div>Algoritimos e Lógica de Programação - U2
+                            </td>
+                            <td>100%</td>
+                        </tr>
+                        <tr>
+                            <td class="prov">19 Jun</td>
+                            <td></td>
+                            <td class="prov">Prova Interdisciplinar - Etapa 03</td>
+                        </tr>
+                        <tr>
+                            <td>02 Mai - 08 Mai</td>
+                            <td></td>
+                            <td>
+                                <div></div>Lógica Computacional - U1
+                            </td>
+                            <td>100%</td>
+                        </tr>
+                        <tr>
+                            <td>09 Mai - 15 Mai</td>
+                            <td></td>
+                            <td>
+                                <div></div>Algoritimos e Lógica de Programação - U1
+                            </td>
+                            <td>100%</td>
+                        </tr>
+                        <tr>
+                            <td>16 Mai - 22 Mai</td>
+                            <td></td>
+                            <td>
+                                <div></div>Lógica Computacional - U2
+                            </td>
+                            <td>100%</td>
+                        </tr>
+                        <tr>
+                            <td>23 mai - 29 Mai</td>
+                            <td></td>
+                            <td>
+                                <div></div>Algoritimos e Lógica de Programação - U2
+                            </td>
+                            <td>100%</td>
+                        </tr>
+                        <tr>
+                            <td class="prov">19 Jun</td>
+                            <td></td>
+                            <td class="prov">Prova Interdisciplinar - Etapa 03</td>
+                        </tr>
+                    </table>
+
+                </div>
+
+
+                <div id="avaliacoes" class="avaliacoes">
+                    <table class="avalia">
+                        <tr>
+                            <th>Habilidades</th>
+                            <th>Status</th>
+                        </tr>
+                        <tr>
+                            <td class="habil">H1a-SI-G - Identificar e descrever problemas que possuem solução
+                                computacional: definir o problema de forma clara e objetiva, com motivação, objetivos e
+                                justificativa</td>
+                            <td><i class="fa fa-2x fa-battery-empty"></i></br><span>Não atende</span></td>
+                        </tr>
+                        <tr>
+                            <td class="habil">H1b-SI-G - Identificar e descrever problemas que possuem solução
+                                computacional: investigar o estado da arte e relacionar potencialidades e propostas de
+                                melhoria</td>
+                            <td><i class="fa fa-2x fa-battery-half"></i></br><span>Atende parcialmente</span></td>
+                        </tr>
+                        <tr>
+                            <td class="habil">H1c-SI-G - Identificar e descrever problemas que possuem solução
+                                computacional: identificar os perfis de usuários e investigar suas necessidades</td>
+                            <td><i class="fa fa-2x fa-battery-three-quarters"></i></br><span>Atende</span></td>
+                        </tr>
+                        <tr>
+                            <td class="habil">H1d-SI-G - Identificar e descrever problemas que possuem solução
+                                computacional: produzir histórias de usuário para especificação do projeto</td>
+                            <td><i class="fa fa-2x fa-battery-full"></i></br><span>Supera</span></td>
+                        </tr>
+                        <tr>
+                            <td class="habil">H1e-SI-G - Identificar e descrever problemas que possuem solução
+                                computacional: construir e categorizar requisitos funcionais e não funcionais derivados
+                                de histórias de usuários</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="habil">H1f-SI-G - Identificar e descrever problemas que possuem solução
+                                computacional: estruturar a arquitetura da solução</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="habil">H2a-SI-G - Articular-se em equipes de trabalho: estruturar o projeto em
+                                uma ferramenta de controle de versão para trabalho de forma colaborativa</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="habil">H2b-SI-G - Articular-se em equipes de trabalho: demonstrar capacidade de
+                                comunicação e colaboração em um processo de desenvolvimento de software</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="habil">H2c-SI-G - Articular-se em equipes de trabalho: utilizar a metodologia
+                                ágil no desenvolvimento colaborativo de um sistema web</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="habil">H3i-SI-G - Articular os conteúdos do período no desenvolvimento de um
+                                sistema baseado na web: descrever os elementos-chave de um sistema de informação
+                                presentes na proposta de solução</td>
+                            <td></td>
+                        </tr>
+
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+   
+
+</body>
+
+<script src="../js/main.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../js/conteudo.js"></script>
+
+</html>

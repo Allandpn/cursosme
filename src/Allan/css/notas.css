@@ -1,0 +1,133 @@
+html[data-theme="light"] {
+   
+    --4-box: rgba(190, 206, 221, 0.2);     
+    --4-menu-text: rgb(94, 119, 140);    
+    --4-border: rgba(170, 169, 169, 0.5);    
+    --4-aba-rec: rgb(255, 255, 255);
+    --4-aba-fav: rgb(255, 255, 255);
+    --battery-empty: rgba(255, 0, 13, 0.733);
+    --battery-quarter: rgb(240, 205, 6);
+    --battery-three-quarters: rgba(0, 183, 255, 0.849);
+    --battery-full: rgb(80, 225, 80);
+    
+}
+
+html[data-theme="dark"] {
+   
+    --4-box: rgba(48, 38, 26, 0.678);    
+    --4-menu-text: rgb(146, 143, 143);
+    --4-border: #f07b0d56;   
+    --4-aba-rec: rgb(0, 0, 0);
+    --4-aba-fav: rgb(0, 0, 0);
+    --battery-empty: rgba(255, 0, 21, 0.664);
+    --battery-quarter: rgb(240, 205, 6);
+    --battery-three-quarters: rgba(0, 183, 255, 0.733);
+    --battery-full: rgba(94, 255, 0, 0.733); 
+}
+
+.notas-titulo{
+    margin: 15px;
+    text-align: center;
+    font-size: 16px;
+    color: var(--4-menu-text);
+    font-weight: bold;  
+    
+}
+
+
+.avaliacoes {
+     
+    overflow: auto;
+    
+   
+    
+}
+
+.avalia {
+    
+    position: relative;
+    width: 90%;
+    margin:  auto;
+    
+}
+
+.notas-cabecalho {
+    margin-top: 15px;
+}
+
+#tit-hab {
+    width: 75%;
+}
+
+.avaliacoes th {
+    
+    padding-bottom: 5px;
+    color: var(--4-menu-text);    
+    text-align:center;
+    font-size: 13px;
+    margin-bottom: 0;
+    border-bottom-width: 2px; 
+    border-bottom-style: solid;
+    border-bottom-color:  var(--4-border); 
+    
+    
+    
+}
+
+.avaliacoes td {
+    padding: 5px;
+    color: var(--4-menu-text);
+    margin: 10px;
+    font-size: 13px;
+    text-align: center;
+    
+}
+
+.habil {
+    width: 75%;
+    text-align: justify;
+    
+}
+
+.avalia tr:nth-child(even) {
+    background-color: var(--4-box);
+  }
+
+  td span {
+      
+      font-size: 10px;
+      
+  }
+
+/*altera cor do texto do nota da habilidade*/
+.descri{
+    font-size: 11px;
+}
+
+
+
+
+   /* altera cor do icone bateria */
+   .fa-battery-empty{
+    color: var(--battery-empty)
+  }
+
+  .fa-battery-quarter{
+    color: var(--battery-quarter);
+    
+  }
+
+  .fa-battery-three-quarters{
+    color: var(--battery-three-quarters);
+    
+  }
+
+  .fa-battery-full{
+    color: var(--battery-full);
+    
+  }  
+
+  .empty-na {
+    color: var(--4-menu-text);
+  }
+  

@@ -1,0 +1,195 @@
+@charset "UTF-8";
+
+
+html[data-theme="light"] {
+
+    --2-box-color: rgb(253, 253, 253);  
+    --2-box-shadow: rgba(94, 119, 140, 0.3);
+    --2-box-ativ-shadow: rgba(64, 66, 68, 0.562);
+    --2-box-text: rgb(94, 119, 140);
+    --2-hover-box: rgb(94, 119, 140);
+    --2-hover-tex: rgb(255, 255, 255);
+    --2-transp-info: rgba(143, 32, 32, 0.1);
+    --2-star: rgb(0, 0, 0, 0.3);
+    --2-check: rgba(190, 190, 190, 0.2);
+    --2-starAtivo: rgb(240, 205, 6);
+    --2-a-hover-tex: rgb(253, 253, 253);
+    --2-ico-completed: rgb(240, 205, 6);
+}
+
+html[data-theme="dark"] {
+
+    --2-box-color: rgb(36, 36, 36);
+    --2-menu-text: rgb(146, 143, 143);
+    --2-box-shadow: rgba(157, 159, 165, 0.315);
+    --2-box-ativ-shadow: #f07b0d;
+    --2-box-text: rgb(157, 159, 165);
+    --2-hover-box: rgb(27, 27, 27);
+    --2-hover-tex: rgb(241, 241, 241);
+    --2-transp-info: rgba(189, 30, 30, 0.1);
+    --2-star: rgba(190, 190, 190, 0.5);
+    --2-check: rgba(190, 190, 190, 0.2);
+    --2-starAtivo: #f07b0dd3;
+    --2-a-hover-tex: #ebe6e1;
+    --2-ico-completed: #f07b0dd3;
+    
+    
+    
+  
+}
+
+
+
+div.container {
+    
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-left: 30px;    
+    display: grid;
+    grid-template-columns: 170px 170px 170px 170px 170px; 
+    gap: 18px;
+    z-index: -2;
+    overflow: auto;   
+    
+        
+}
+
+
+
+.container div li{    
+    max-width: 170px;    
+    margin-top: 5px;    
+    margin-bottom: 15px;
+    text-align: center;
+    list-style:none;    
+    border: 5px ;   
+    border-radius: 5px;    
+    box-shadow: 2px 2px 5px var(--2-box-shadow);
+    background-color: var(--2-box-color);
+    color: var(--2-box-text);
+    z-index: 1;   
+}
+
+.container div li div{     
+    padding: 5px ;
+}
+
+
+
+
+.container li:hover{
+    background-color: var(--2-hover-box) ;
+    color: var(--2-hover-tex);
+    transition: 0.15s;
+    box-shadow:  0 0 3px var(--2-box-ativ-shadow) !important;
+    
+    
+    
+}
+
+.select {
+    background-color: var(--2-hover-box) !important;
+    color: var(--2-hover-tex)!important;
+    box-shadow: 0 0 6px var(--2-box-ativ-shadow) !important;
+}
+
+
+.arv_link_ativ{
+    color: var(--2-a-text);
+  }
+  
+  .arv_link_ativ:hover{
+    color: var(--2-a-hover-tex);
+  }
+
+
+
+.coluna1 {
+    display: block;
+    
+}
+
+.coluna2 {
+    display: none;
+}
+
+.coluna3 {
+    display: none;
+}
+
+
+.coluna4{
+    display: none; 
+}
+
+
+.coluna5{
+    
+    display: none;
+}
+
+
+
+.show {
+    display: block;
+}
+
+
+
+
+
+/* Icones */
+
+.container .fa {
+    
+    margin-left: 10px;
+    left: 90px;      
+
+}
+
+.container .fa-star-o{
+    color: var(--2-star);    
+
+}
+
+
+.container .fa-star-o:hover{
+    color: #fffb00;    
+
+}
+
+.fa-star {
+    color: var(--2-starAtivo); 
+}
+
+
+
+.fa-check{
+    color: var(--2-check);    
+
+}
+
+.completed {
+    color: var(--2-ico-completed); 
+}
+
+.true{
+    color: var(--2-ico-completed); 
+}
+
+
+
+
+/* classe para icone favorito selecionado*/
+.favoritoIcon {
+    background-color: #fffb00;
+    padding: 1px;
+    border-radius: 5px;
+    color: var(--2-hover-box) !important;
+}
+
+
+
+
+
+

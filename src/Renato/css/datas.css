@@ -1,0 +1,85 @@
+
+html[data-theme="light"] {
+   
+    --5-box: rgba(190, 206, 221, 0.2);      
+    --5-menu-text: rgb(94, 119, 140);    
+    --5-menu-selecao: #ffffff;
+    --5-border: rgba(170, 169, 169, 0.5);    
+    
+    --5-aba-rec: rgb(255, 255, 255);
+    --5-aba-fav: rgb(255, 255, 255);
+     
+}
+
+html[data-theme="dark"] {
+   
+    --5-box: rgba(48, 38, 26, 0.678);    
+    --5-menu-text: rgb(146, 143, 143);
+    --5-border: #f07b0d56;    
+    
+    --5-aba-rec: rgb(0, 0, 0);
+    --5-aba-fav: rgb(0, 0, 0); 
+}
+
+
+
+.cronograma {
+    overflow: auto;
+    padding-top: 20px;
+    height: 50px;
+}
+
+.crono {
+    position: relative;
+    margin: auto;
+    width: 90%;
+}
+
+.cont {
+    position: relative;
+    width: 60%;
+}
+
+.crono th {
+    padding-bottom: 5px;
+    color: var(--5-menu-text);
+    margin: 5px;
+    text-align: center;
+    font-size: 14px;
+    border-bottom-width: 2px; 
+    border-bottom-style: solid;
+    border-bottom-color:  var(--5-border);   
+    
+}
+
+.crono td {
+    
+    color: var(--5-menu-text);
+    margin-top: 0;
+    font-size: 14px;
+    text-align: center;
+    border-bottom-width: 1px; 
+    border-bottom-style: solid;
+    border-bottom-color:  var(--5-border);
+    
+}
+/*
+    .crono tr:nth-child(even) {
+        background-color: var(--4-box);
+      }
+*/
+
+  .crono div {
+    margin: auto;
+    margin-top: 5px;
+    width: 90%;
+    height: 15px;
+    background-color: rgba(67, 245, 43, 0.623);
+    border-radius: 5px;
+    
+  }
+
+  .crono .prov {
+      font-weight: bold;
+  }
+

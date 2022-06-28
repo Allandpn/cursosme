@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="dark">
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3A Área do Professor</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/conteudo.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@5.8.55/css/materialdesignicons.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+</head>
+
+<body id="container">
+
+    <div id="menu-professor">
+        <nav>
+            <p><i class="fa fa-2x fa-user"></i></br> Conta</p>
+            <p><i class="fa fa-2x fa-circle-o"></i></br>Canvas</p>
+            <p><i class="fa fa-2x fa-question-circle"></i></br>Ajuda</p>
+            <p><i class="fa fa-2x fa-info"></i></br>About</p>
+        </nav>
+
+        <div>
+            <div class="toggler-container">
+                <div id="theme-toggler">
+                    <span class="mdi mdi-theme-light-dark"></span>
+                </div>
+                <div>
+                    <input id="save-theme" type="checkbox" /> <span id="salvar-texto">Lembrar tema
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <div class="row m-0 offset-md-1">
+        <Header id="cabecalho" class="col-md-12 w-100 ml-5">
+            <p><a>
+                    Planejamento do Curso
+                </a>
+            </p>
+            <hr>
+
+        </Header>
+    </div>
+    <div id="conteudo">
+
+        <div class="cadastro-do-conteudo row">
+            <div id="selecao-curso" class="col-md-4 offset-md-1">
+                <h6 class="titulos-h6">Curso</h6>
+                <form id="curso-periodo">
+
+                    <select name="curso" id="box-curso" class="custom-select">
+                        <option value="">Selecione o curso</option>
+                        <option value="">Sistemas de informação</option>
+                    </select>
+
+                    <select name="periodo" id="box-periodo" class="custom-select">
+                        <option value="">Selecione o periodo</option>
+                        <option value="">1º período</option>
+                        <option value="">2º período</option>
+                        <option value="">3º período</option>
+                        <option value="">4º período</option>
+                        <option value="">5º período</option>
+                        <option value="">6º período</option>
+                        <option value="">7º período</option>
+                        <option value="">8º período</option>
+                    </select>
+
+                    <label>
+                        <h6 class="titulos-h6">Visulize seu plano Pedagógico:</h6>
+                    </label>
+                    <button type="button" class="btn btn-secondary" onclick="verPrograma()">Ver</button>
+                    <label>
+                        <h6 class="titulos-h6">Salve a Arvore de ensino:</h6>
+                    </label>
+                    <button type="button" class="btn btn-secondary" onclick="criaPrograma()">salvar</button>
+                    
+                </form>
+            </div>
+            <div id="cadastro-materias">
+
+                <div id="materia-barra" class="col-md-8 materias">
+
+                    <div id="cadastro-materias">
+                        <!-- <div class="arvore col-md-4" id="box-materias">
+                                <form id="titulo-materias">
+                                    <h6 class="titulos-h6">Cadastro das materias</h6>
+                                    <select name="Etapa" id="selecao-da-etapa">
+                                        <option>-</option>
+                                        <option value="1">Etapa 1</option>
+                                        <option value="2">Etapa 2</option>
+                                        <option value="3">Etapa 3</option>
+                                        <option value="4">Etapa 4</option>
+                                        <option value="5">Etapa 5</option>
+                                    </select>
+                                    <input type="date" id="date-1"> a <input type="date" id="date-2">
+                                </form>
+                            </div>-->
+                        <!--<div id="materia-barra" class="col-md-8 materias">
+                            <li>Lógica de Desenvolvimento de Sistemas Computacionais</li>
+                            <li>Microfundamento: Algoritmos e Abstração de Dados</li>
+                            <li>Microfundamento: Algoritmos e Lógica de Programação</li>
+                            <li>Microfundamento: Arquitetura Empresarial e da Tecnologia da Informação</li>
+                            <li>Microfundamento: Desenvolvimento Web Front-End</li>
+                            <li>Microfundamento: Introdução à Computação</li>
+                            <li>Microfundamento: Lógica Computacional</li>
+                            <li>Microfundamento: Matemática Básica</li>
+                            <li>Microfundamento: Organização de Computadores</li>
+                        </div>-->
+                    </div>
+                </div>
+                <!--Defini a classe da DIV principal-->
+                <div class="curso_completo row">
+                    <div class="visualhisacao-da-arvore  col-md-3" id="etapas">
+                        <h6 class="titulos-h6">Etapas</h6>
+                        <ul id="arv_etapas"></ul>
+                        <li id="li_etp"> - </li>
+                    </div>
+                    <div class="visualhisacao-da-arvore  col-md-3" id="microfundamento">
+                        <h6 class="titulos-h6">Microfundamento</h6>
+                        <ul id="arv_microfundamento"></ul>
+                        <li id="li_mic"> - </li>
+                    </div>
+                    <div class="visualhisacao-da-arvore col-md-3" id="tema">
+                        <h6 class="titulos-h6">Tema</h6>
+                        <ul id="arv_temas"></ul>
+                        <li id="li_tem"> - </li>
+                    </div>
+                    <div class="visualhisacao-da-arvore col-md-3" id="aula">
+                        <h6 class="titulos-h6">Aula</h6>
+                        <ul id="arv_aulas"></ul>
+                        <li id="li_aul"> - </li>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Defini a classe da DIV principal-->
+
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../API_Canvas/init_course.js"></script>
+<script src="../API_Canvas/etapas.js"></script>
+<script src="../API_Canvas/microfundamentos.js"></script>
+<script src="../API_Canvas/unidades.js"></script>
+<script src="../API_Canvas/temas.js"></script>
+<script src="../js/planejamento.js"></script>
+
+
+</html>

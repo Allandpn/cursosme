@@ -1,0 +1,28 @@
+.container-barra-progress {
+    width: 500px;
+    height: 400px;
+    border-radius: 7px;
+    display: flex;
+    justify-content: left;
+    justify-items: left;
+    box-shadow: 0 10px 16px 0 808080;
+
+}
+
+.barra-progress-vazia {
+width: 80%;
+height: 9px;
+margin: auto;
+background: beige;
+border-radius: 10px;
+display: flex;
+align-items: left;
+}
+
+.barra-progress {
+width: 50%;
+height: 5px;
+background:aqua;
+
+
+}

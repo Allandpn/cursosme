@@ -1,0 +1,293 @@
+@charset "UTF-8";
+
+
+/* Define variáveis de cores */
+
+
+html[data-theme="light"] {
+
+    --1-menu-nav-A: rgb(94, 119, 140);
+    --1-menu-nav-B: rgb(68, 87, 102);
+    --1-menu-bot-A: rgb(233, 233, 233);
+    --1-menu-bot-B: rgb(233, 232, 232);
+    --1-menu-text: rgb(68, 87, 102);
+    --1-menu-text-p: rgb(77, 109, 121);
+    --1-menu-selecao: #8d4603;
+    --1-box-sombra: rgba(129, 129, 129, 0.5);
+    --1-boxes-fundo: #ffffff;
+    --1-body-fundo: #ffffff;
+
+
+}
+
+html[data-theme="dark"] {
+
+    --1-menu-nav-A: #ffffff;
+    /*--1-menu-nav-B: rgb(24, 22, 21);*/
+    --1-menu-bot-A: rgba(170, 168, 166, 0.7);
+    --1-menu-bot-B: rgba(196, 196, 196, 0.7);
+    --1-menu-text: #ffffff;
+    --1-menu-text-p: #ffffff;
+    --1-menu-selecao: #f07b0d;
+    --1-box-sombra: rgba(245, 245, 245, 0.2);
+    --1-boxes-fundo: #404040;
+    --1-body-fundo: #404040;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Formata Área Principal */
+
+body {
+    background-color: var(--1-boxes-fundo);
+    width: 100%;
+    height: 100%;
+}
+
+body div#menu-professor {
+    position: fixed;
+    display: block;
+    width: 86px;
+    height: 100%;
+    box-sizing: border-box;
+    margin-right: 5px;
+    padding: 0;
+    float: left;
+    box-shadow: 2px 2px 5px var(--1-box-sombra);
+    background-image: linear-gradient(to left, var(--1-menu-nav-A), var(--1-menu-nav-B));
+    z-index: 2;
+
+}
+
+main {
+    top: 0;
+    left: 86px;
+    display: block;
+    height: 100vh;
+}
+
+header {
+    top: 0;
+    height: 10%;
+    width: 50%;
+    z-index: 1;
+    box-shadow: 2px 2px 5px var(--1-box-sombra);
+    background-image: linear-gradient(var(--1-menu-bot-A), var(--1-menu-bot-B));
+}
+
+#area-total {
+    left: 86px;
+    height: 100%;
+    width: 100%;
+}
+
+header p {
+    margin-bottom: 0;
+    padding-top: 15px;
+    padding-bottom: 0;
+    margin-left: 40px;
+    font-size: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: var(--1-menu-text-p);
+
+}
+
+header hr {
+
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    color: var(--1-menu-text-p);
+
+}
+
+#conteudo {
+
+    margin-top: 2%;
+    margin-left: 5%;
+}
+
+.cadastro-do-conteudo {
+    display: block;
+    margin-top: 3%;
+    margin-left: 5%;
+
+}
+
+
+.curso_completo {
+    display: block;
+    margin-top: 5%;
+    padding: 10px;
+    margin-left: 0%;
+
+}
+
+.visualhisacao-da-arvore {
+    display: block;
+    height: 500px;
+    float: right;
+    width: 500px;
+    margin-top: none;
+    border-width: 1px;
+    border-color: var(--1-box-sombra);
+    padding: 5px;
+}
+
+
+
+#etapas {
+    
+    color: black;
+    width: 300px;
+    height: auto;
+    margin: 10px;
+    padding: 15px;
+    margin-left: 5px;
+    float: left;
+
+}
+
+#microfundamento {
+    
+    color: black;
+    width: 300px;
+    height: auto;
+    margin: 10px;
+    padding: 15px;
+    margin-left: 5px;
+    float: left;
+
+}
+
+#tema {
+    
+    color: black;
+    width: 300px;
+    height: auto;
+    margin: 10px;
+    padding: 15px;
+    margin-left: 5px;
+    float: left;
+
+}
+
+#aula {
+    
+    color: black;
+    width: 300px;
+    height: auto;
+    margin: 9px;
+    padding: 11px;
+    margin-left: 4px;
+    float: left;
+
+}
+
+#materia-barra {
+    overflow-y: scroll;
+    height: 350px;
+    margin-left: 10%;
+}
+
+#selecao-curso {
+    float: left;
+    height: 348px;
+    width: 300px;
+    margin-left: 2%;
+    margin-right: 1%;
+    text-align: center;
+    align-items: center;
+}
+
+
+
+
+#titulo-materias {
+    text-align: center;
+    width: auto;
+    margin: 20px;
+    height: auto;
+    float: left;
+    background-color: #f8f9fa00;
+    align-items: center;
+}
+
+
+
+
+#curso-periodo {
+    display: flex;
+    height: 84%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: stretch;
+}
+
+
+
+
+.date-2 {
+    display: block;
+
+
+}
+
+.date-1 {
+    display: block;
+
+}
+
+.sel-etp {
+    width: 100px;
+    display: block
+}
+
+#box-periodo {
+    width: 80%;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 3%; ;
+
+
+}
+
+#box-curso {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+
+#box-materias {
+    width: 41%;
+    margin: 15px;
+
+
+}
+
+.microSelect:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+#table-micro {
+    background-color: rgb(240, 239, 239);
+
+}
+
+.unid-visivel {
+    display: none;
+}
+
+.custom-select{
+    width: 95px;
+}

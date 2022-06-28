@@ -1,0 +1,489 @@
+@charset "UTF-8";
+
+html[data-theme="light"] {
+   
+    --1-menu-nav-A: rgb(94, 119, 140);
+    --1-menu-nav-B: rgb(68, 87, 102);  
+    --1-menu-text: rgb(200, 208, 211);    
+    --1-menu-selecao: #ffffff;
+    --1-box-sombra: rgba(170, 169, 169, 0.5);
+    --1-boxes-fundo:  #ffffff;
+    --1-body-fundo:  #ffffff;
+    
+    --1-aba-rec: rgb(255, 255, 255);
+    --1-aba-fav: rgb(255, 255, 255);
+     
+}
+
+html[data-theme="dark"] {
+   
+    --1-menu-nav-A: rgb(29, 26, 22);
+    --1-menu-nav-B: rgb(24, 22, 21);
+    --1-menu-text: rgb(146, 143, 143);
+    --1-menu-selecao: #f07b0d;
+    --1-boxes-fundo:  #181717;
+    --1-body-fundo:  #050505;
+    
+    --1-aba-rec: rgb(0, 0, 0);
+    --1-aba-fav: rgb(0, 0, 0); 
+}
+
+
+
+/* Formatação do Menu Lateral */
+
+#menu-aluno {
+  height: 100vh;
+}
+
+nav {    
+    position: relative;
+    top: 80px;
+    width: 70px;
+    margin: auto;
+    background-image: linear-gradient(to left, var(--1-menu-nav-A), var(--1-menu-nav-B));
+    z-index: 2;
+    
+
+}
+
+
+
+nav p {
+    justify-content: center;    
+    text-align: center;
+    align-items: center;
+    padding: 10px 0; 
+    width: 100%;    
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 12px;    
+    color: var(--1-menu-text);
+    
+
+}
+
+
+
+nav p:hover {    
+    
+    color: var(--1-menu-selecao);
+    
+    
+
+}
+
+
+
+
+/*alteração do tema */
+#save-theme {
+    position: absolute;
+    top: 95%;
+    left: 5px;
+
+    color: #000000;
+
+    text-align: center;
+
+    border-radius: 7px;
+}
+
+#salvar-texto {
+    position: absolute;
+    top: 97%;
+    font-size: 12px;
+    margin-right: 0;
+    margin-left: 5px;
+
+
+
+    color: #ffffff;
+
+    text-align: center;
+
+    border-radius: 7px;
+}
+
+
+
+#theme-toggler {    
+    left: 20px;    
+    position: absolute;    
+    top: 90%;    
+    color: var(--1-menu-text);      
+    font-size: 30px;
+    height: 40px;
+    width: 40x;
+    border-radius: 5px;
+    border-style: solid;
+    display: flex;    
+    align-items: center;
+
+}
+
+#theme-toggler:hover {
+    color: var(--1-menu-selecao);
+
+
+}
+
+
+
+/*define transparencia do fundo */
+
+transparencia {
+  
+  display: none;
+  position: relative;
+  width: 100%;       
+  height: 100%;
+  background: var(--1-transp);
+  
+  transition: opacity 300ms ;
+     
+
+}
+
+
+
+/* janela recolhivel 'Favoritos' */
+
+/* The side navigation menu */
+.sidefav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    top: 0; /* Stay at the top */
+    left: 70;
+    background-color: var(--1-aba-fav); /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.3s; /* 0.5 second transition effect to slide in the sidenav */
+    z-index: 3;
+    box-shadow: 2px 2px 5px var(--1-box-sombra);
+    color: cadetblue;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+  
+  /* The navigation menu links */
+  .sidefav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidefav a:hover {
+    color: #f1f1f1;
+  }
+  
+  /* Position and style the close button (top right corner) */
+  .sidefav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+  #main {
+    transition: margin-left .3s;
+    padding: 20px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidefav {padding-top: 15px;}
+    .sidefav a {font-size: 18px;}
+  }
+
+
+/* janela recolhivel 'Recentes' */
+
+/* The side navigation menu */
+.siderec {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: absolute; /* Stay in place */
+    top: 0; /* Stay at the top */
+    left: 70;
+    background-color: var(--1-aba-rec); /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.3s; /* 0.5 second transition effect to slide in the sidenav */
+    z-index: 2;
+    box-shadow: 2px 2px 5px var(--1-box-sombra);
+    color: cadetblue;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+  
+  /* The navigation menu links */
+  .siderec a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .siderec a:hover {
+    color: #f1f1f1;
+  }
+  
+  /* Position and style the close button (top right corner) */
+  .siderec .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+  #main {
+    transition: margin-left .3s;
+    padding: 20px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .siderec {padding-top: 15px;}
+    .siderec a {font-size: 18px;}
+  }  
+
+  
+
+  /* janela recolhivel 'Ajuda' */
+
+/* The side navigation menu */
+.sideaju {
+ 
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: absolute; /* Stay in place */
+  top: 0; /* Stay at the top */
+  left: 70;
+  background-color: var(--1-aba-fav); /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.3s; /* 0.5 second transition effect to slide in the sidenav */
+  z-index: 3;
+  box-shadow: 2px 2px 5px var(--1-box-sombra);
+  color: cadetblue;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+/* The navigation menu links */
+.sideaju a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+  
+}
+
+/* When you mouse over the navigation links, change their color */
+.sideaju a:hover {
+  color: #f1f1f1;
+
+}
+
+/* Position and style the close button (top right corner) */
+.sideaju .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .3s;
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sideaju {padding-top: 15px;}
+  .sideaju a {font-size: 18px;}
+}
+
+/* janela recolhivel 'About' */
+
+/* The side navigation menu */
+.sideabo {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  top: 0; /* Stay at the top */
+  left: 70;
+  background-color: var(--1-aba-fav); /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.3s; /* 0.5 second transition effect to slide in the sidenav */
+  z-index: 3;
+  box-shadow: 2px 2px 5px var(--1-box-sombra);
+  color: cadetblue;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+/* The navigation menu links */
+.sideabo a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sideabo a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sideabo .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .3s;
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sideabo {padding-top: 15px;}
+  .sideabo a {font-size: 18px;}
+}
+
+/* janela recolhivel 'Conta' */
+
+/* The side navigation menu */
+.sidecon {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  top: 0; /* Stay at the top */
+  left: 70;
+  background-color: var(--1-aba-fav); /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.3s; /* 0.5 second transition effect to slide in the sidenav */
+  z-index: 3;
+  box-shadow: 2px 2px 5px var(--1-box-sombra);
+  color: cadetblue;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+/* The navigation menu links */
+.sidecon a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidecon a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidecon .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .3s;
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidecon {padding-top: 15px;}
+  .sidecon a {font-size: 18px;}
+}
+
+/* janela recolhivel 'Recentes' */
+
+/* The side navigation menu */
+.siderec {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: absolute; /* Stay in place */
+    top: 0; /* Stay at the top */
+    left: 70;
+    background-color: var(--1-aba-rec); /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.3s; /* 0.5 second transition effect to slide in the sidenav */
+    z-index: 2;
+    box-shadow: 2px 2px 5px var(--1-box-sombra);
+    color: cadetblue;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+  
+  /* The navigation menu links */
+  .siderec a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .siderec a:hover {
+    color: #f1f1f1;
+  }
+  
+  /* Position and style the close button (top right corner) */
+  .siderec .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+  #main {
+    transition: margin-left .3s;
+    padding: 20px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .siderec {padding-top: 15px;}
+    .siderec a {font-size: 18px;}
+  }
+  
+  input[type="checkbox"]
+  {display: none;}
+
+  a{text-decoration: none;
+  color: rgba(247, 242, 242, 0.377);}

@@ -1,0 +1,174 @@
+@charset "UTF-8";
+
+
+
+/* Define variáveis de cores */
+
+
+html[data-theme="light"] {
+
+    --1-menu-nav-A: rgb(94, 119, 140);
+    --1-menu-nav-B: rgb(68, 87, 102);
+    --1-menu-bot-A: rgb(233, 233, 233);
+    --1-menu-bot-B: rgb(233, 232, 232);
+    --1-menu-text: rgb(68, 87, 102);
+    --1-menu-text-p: rgb(77, 109, 121);
+    --1-menu-selecao: #8d4603;
+    --1-box-sombra: rgba(129, 129, 129, 0.5);
+    --1-boxes-fundo: #ffffff;
+    --1-body-fundo: #ffffff;
+    
+
+}
+
+html[data-theme="dark"] {
+
+    --1-menu-nav-A: rgb(29, 26, 22);
+    --1-menu-nav-B: rgb(24, 22, 21);
+    --1-menu-bot-A: rgba(170, 168, 166, 0.7);
+    --1-menu-bot-B: rgba(196, 196, 196, 0.7);
+    --1-menu-text: rgb(20, 20, 20);
+    --1-menu-text-p: rgb(39, 24, 2);
+    --1-menu-selecao: #f07b0d;
+    --1-box-sombra: rgba(245, 245, 245, 0.2);
+    --1-boxes-fundo: #181717;
+    --1-body-fundo: #050505;    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Formata Área Principal */
+
+body {
+    background-color: var(--1-boxes-fundo);
+}
+
+body div#menu-aluno {
+    position: absolute;
+    display: block;
+    width: 85px;
+    height: 100%;
+    box-sizing: border-box;    
+    margin: 0;
+    padding: 0;
+    float: left;
+    box-shadow: 2px 2px 5px var(--1-box-sombra);
+    background-image: linear-gradient(to left, var(--1-menu-nav-A), var(--1-menu-nav-B));
+    z-index: 0;
+    
+}
+
+main {
+    overflow: auto;
+    top: 0;
+    float: right;
+    position: absolute;
+    left: 86px;
+    display:block  ;
+    width: calc( 100% - 86px);
+    height: 100vh;
+    z-index: -1;
+
+
+}
+header {
+    position: relative;
+    display: block;
+    top: 0;
+    width: 100%;    
+    height: 65px;
+    float: right;
+    box-shadow: 2px 2px 5px var(--1-box-sombra);
+    background-image: linear-gradient(var(--1-menu-bot-A), var(--1-menu-bot-B));
+    z-index: -1;
+
+
+}
+
+
+main header p {
+    margin-bottom: 0;
+    padding-top: 15px;
+    padding-bottom: 0;
+    margin-left: 40px;
+    font-size: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: var(--1-menu-text-p);
+
+}
+
+main header hr {
+
+    margin-top: 0;
+    margin-left: 40px;
+    margin-right: 10px;
+    color: var(--1-menu-text-p);
+
+}
+
+
+
+
+#conteudo {
+    position: relative;
+    display: block;
+    top: 5px;
+    width: 100%;
+    height: 45%;
+    float: right;    
+    box-shadow: 2px 2px 5px var(--1-box-sombra);
+    z-index: -1;
+    
+}
+
+#info {
+    margin-top: 50px;
+    position: relative;
+    display: block;
+    top: 5px;
+    right: 2%;
+    width: 96%;
+    height: 45%;
+    float: right;
+    z-index: -2;
+
+
+}
+
+#cronograma {
+
+    display: block;
+    width: calc(50% - 10px);
+    margin: 5px;
+    height: calc(100% - 12px);
+    float: left;
+    background-color: var(--1-boxes-fundo);
+    
+    
+    
+
+}
+
+#avaliacoes {
+
+    display: block;
+    width: calc(50% - 10px);
+    margin: 5px;
+    height: calc(100% - 12px);
+    float: right;
+    background-color: var(--1-boxes-fundo);
+   
+    
+    
+}
+
+

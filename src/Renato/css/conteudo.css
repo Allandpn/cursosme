@@ -1,0 +1,138 @@
+@charset "UTF-8";
+
+
+html[data-theme="light"] {
+
+    --1-box-color: rgb(253, 253, 253);
+    --1-box-shadow: rgba(94, 119, 140, 0.3);
+    --1-box-text: rgb(94, 119, 140);
+    --1-hover-box: rgb(94, 119, 140);
+    --1-hover-tex: rgb(255, 255, 255);
+    --1-transp-info: rgba(143, 32, 32, 0.1);
+    --1-star: rgb(0, 0, 0, 0.3);
+    --1-check: rgba(190, 190, 190, 0.2);
+    
+}
+
+html[data-theme="dark"] {
+
+    --1-box-color: rgb(36, 36, 36);
+    --1-box-shadow: rgba(245, 245, 245, 0.2);
+    --1-box-text: rgb(157, 159, 165);
+    --1-hover-box: rgb(27, 27, 27);
+    --1-hover-tex: #f07b0d;
+    --1-transp-info: rgba(189, 30, 30, 0.1);
+    --1-star: rgba(190, 190, 190, 0.5);
+    --1-check: rgba(190, 190, 190, 0.2);
+    
+    
+    
+    
+  
+}
+
+
+
+div.container {
+    
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-left: 30px;    
+    display: grid;
+    grid-template-columns: 150px 150px 150px 150px 150px; 
+    gap: 18px;
+    z-index: -2;
+    overflow: auto;   
+    
+        
+}
+
+
+
+.container div li{    
+    max-width: 150px;
+    margin: 0;    
+    margin-bottom: 15px;
+    text-align: center;
+    list-style:none;    
+    border: 5px ;   
+    border-radius: 5px;    
+    box-shadow: 2px 2px 5px var(--1-box-shadow);
+    background-color: var(--1-box-color);
+    color: var(--1-box-text);
+    z-index: 1;
+    
+    
+}
+
+.container li:hover{
+    background-color: var(--1-hover-box) ;
+    color: var(--1-hover-tex);
+    transition: 0.15s;
+    
+    
+    
+    
+}
+
+
+.coluna1 {
+    display: block;
+    
+}
+
+.coluna2 {
+    display: none;
+}
+
+.coluna3 {
+    display: none;
+}
+
+
+.coluna4{
+    display: none; 
+}
+
+
+.coluna5{
+    
+    display: none;
+}
+
+
+
+.show {
+    display: block;
+}
+
+
+
+
+
+/* Icones */
+
+.container .fa {
+    
+    margin-left: 10px;
+    left: 90px;      
+
+}
+
+.container .fa-star-o{
+    color: var(--1-star);    
+
+}
+
+
+.container .fa-star-o:hover{
+    color: #fffb00;    
+
+}
+
+
+
+.container .fa-check{
+    color: var(--1-check);    
+
+}
