@@ -23,7 +23,39 @@ function init(){
 
 
 
+var puc = new XMLHttpRequest();
+    var urlPuc = 'https://pucminas.instructure.com/api/v1/users/189649/courses';
 
+    function pucDados() {
+        var dadosPuc = JSON.parse (puc.responseText);
+        var saida1 = '';
+        for (i = 0; i < dadosPuc.length; i++) {
+            saida1 += `<div class="lista-puc">
+            <p>${dadosPuc[i].name}</p>
+            <p>Fone: ${dadosPuc.results[i].course_code}</p>
+            
+            </div>`
+        }
+        document.getElementById('lista-puc').innerHTML = saida1;
+    }
+
+    function getPuc() {
+
+
+      console.log(window.fetch);
+        fetch('https://pucminas.instructure.com/api/v1/users/189649/courses', { 
+         method: 'GET',        
+         headers: {
+                 Authorization: `Bearer ${'11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3BvdgL'}`}})     
+     
+           
+
+
+
+        req.onload = pucDados;
+        req.open('GET', urlPuc, true);
+        req.send();
+    } 
 
 
 
