@@ -1,6 +1,6 @@
 
 function getData() {
-
+/*
     var db_assigments = "" 
     const token = "11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3BvdgL"
     db_assigments = fetch('https://pucminas.instructure.com/api/v1/courses/87896/assignments?per_page=2000',
@@ -21,7 +21,9 @@ function getData() {
             console.log(data)
         })
         .catch((error) => console.log(error.message))
-  
+  */
+
+        console.log('teste')
   
   } 
   
