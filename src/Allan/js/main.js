@@ -2,9 +2,9 @@
 
 function init(){
 
-  
+
     const token = "11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3BvdgL"
-    const db_assigments = fetch('https://pucminas.instructure.com/api/v1/courses/87896/assignments?per_page=2000',
+      const   db_assigments = fetch('https://pucminas.instructure.com/api/v1/courses/87896/assignments?per_page=2000',
             {
                 method: "get",
                 headers: {
@@ -16,10 +16,10 @@ function init(){
                     "Authorization": `Bearer ${token}`
                 },
             })
-           // .then((db_assigments) => db_assigments.json())
+            .then((db_assigments) => db_assigments.json())
             .then((data) => {
-               db_assigments = data.json();
-                console.log(db_assigments)
+               // db_assigments = data;
+                console.log(data)
             })
             .catch((error) => console.log(error.message))
 
@@ -28,7 +28,7 @@ function init(){
   //carregaAtri()
 
   //Preenche caixa DropDown com as Etapas
-  preencDrop (data)
+  preencDrop ()
 
   carregaDatas ()
 
