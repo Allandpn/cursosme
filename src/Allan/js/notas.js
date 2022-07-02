@@ -1,5 +1,30 @@
 
+function getData() {
 
+    var db_assigments = "" 
+    const token = "11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3BvdgL"
+    db_assigments = fetch('https://pucminas.instructure.com/api/v1/courses/87896/assignments?per_page=2000',
+        {
+            method: "get",
+            headers: {
+              //  'Content-Type' : 'application/json',
+              //  'Content-Type' : 'application/json',
+              //  'Access-Control-Allow-Origin' : '*',
+              //  'Access-Control-Allow-Headers' : '*',
+              //  'Access-Control-Allow-Credentials' :  'true',
+                "Authorization": `Bearer ${token}`
+            },
+        })
+        .then((db_assigments) => db_assigments.json())
+        .then((data) => {
+           // db_assigments = data;
+            console.log(data)
+        })
+        .catch((error) => console.log(error.message))
+  
+  
+  } 
+  
 
 
 
