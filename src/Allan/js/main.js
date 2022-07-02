@@ -60,7 +60,6 @@ function getData() {
 
 
 
-
 let savedTheme = localStorage.getItem("theme");
 let saveTheme = document.getElementById("save-theme");
 if (savedTheme) {
