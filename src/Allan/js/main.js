@@ -2,13 +2,33 @@
 
 function init(){
 
+  
+    const token = "11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3BvdgL"
+    const db_assigments = fetch('https://pucminas.instructure.com/api/v1/courses/87896/assignments?per_page=2000',
+            {
+                method: "get",
+                headers: {
+                  //  'Content-Type' : 'application/json',
+                  //  'Content-Type' : 'application/json',
+                  //  'Access-Control-Allow-Origin' : '*',
+                  //  'Access-Control-Allow-Headers' : '*',
+                  //  'Access-Control-Allow-Credentials' :  'true',
+                    "Authorization": `Bearer ${token}`
+                },
+            })
+           // .then((db_assigments) => db_assigments.json())
+            .then((data) => {
+               db_assigments = data.json();
+                console.log(db_assigments)
+            })
+            .catch((error) => console.log(error.message))
 
 
   //Carrega a lista de atributos
   //carregaAtri()
 
   //Preenche caixa DropDown com as Etapas
-  preencDrop ()
+  preencDrop (data)
 
   carregaDatas ()
 
