@@ -1,6 +1,28 @@
 
 
+function init(){
 
+
+
+
+  //Carrega a lista de atributos
+  //carregaAtri()
+
+  //Preenche caixa DropDown com as Etapas
+
+
+  
+  preencDrop ()
+
+  carregaDatas ()
+
+  carregaAtri()
+
+ // _token = '11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3BvdgL'
+
+ 
+   
+}
 /*
 
 */
