@@ -207,7 +207,7 @@
             })
             .then((res) => res.json())
             .then((data) => {
-                document.getElementById('lista-clientes').innerHTML = data;
+                document.getElementById('lista-clientes').innerHTML = JSON.parse(data) ;
                 console.log(data)
             })
             .catch((error) => console.log(error.message))
