@@ -190,11 +190,10 @@
     // var req = new XMLHttpRequest();
     //var url = 'https://randomuser.me/api/?results=10';
 
-    function getData() {
+  /*  function getData() {
 
-        var db_assigments = ''
-    const token = "11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3BvdgL"
-        const res = fetch('https://pucminas.instructure.com/api/v1/courses/87896/assignments?per_page=2000',
+        const token = "11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3BvdgL"
+        const res = fetch('https://pucminas.instructure.com/api/v1/users/self',
             {
                 method: "get",
                 headers: {
@@ -208,13 +207,13 @@
             })
             .then((res) => res.json())
             .then((data) => {
-                db_assigments = data;
-                console.log(db_assigments)
+                document.getElementById('lista-clientes').innerHTML = data;
+                console.log(data)
             })
             .catch((error) => console.log(error.message))
 
 
-    }
+    } */
 
 
 

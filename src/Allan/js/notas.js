@@ -8,7 +8,7 @@ function preencDrop() {
 
     var db_assigments = ''
     const token = "11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3BvdgL"
-        const res = fetch('https://pucminas.instructure.com/api/v1/courses/87896/assignments?per_page=2000',
+         db_assigments = fetch('https://pucminas.instructure.com/api/v1/courses/87896/assignments?per_page=2000',
             {
                 method: "get",
                 headers: {
@@ -20,10 +20,10 @@ function preencDrop() {
                     "Authorization": `Bearer ${token}`
                 },
             })
-            .then((res) => res.json())
+            .then((db_assigments) => db_assigments.json())
             .then((data) => {
-                db_assigments = data;
-                console.log(db_assigments)
+               // db_assigments = data;
+                console.log(data)
             })
             .catch((error) => console.log(error.message))
 
