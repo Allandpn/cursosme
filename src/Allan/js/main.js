@@ -3,8 +3,9 @@
 function init(){
 
 
-    const token = "11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3BvdgL"
-      const   db_assigments = fetch('https://pucminas.instructure.com/api/v1/courses/87896/assignments?per_page=2000',
+  var db_assigments = "" 
+  const token = "11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3BvdgL"
+  db_assigments = fetch('https://pucminas.instructure.com/api/v1/courses/87896/assignments?per_page=2000',
             {
                 method: "get",
                 headers: {
