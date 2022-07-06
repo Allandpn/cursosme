@@ -1,11 +1,11 @@
 
 html[data-theme="light"] {
    
-    --5-box: rgba(190, 206, 221, 0.2);      
-    --5-menu-text: rgb(94, 119, 140);    
+      
+    --5-menu-text:  rgb(45, 75, 100);     
     --5-menu-selecao: #ffffff;
     --5-border: rgba(170, 169, 169, 0.5);
-    --5-box: rgba(213, 219, 224, 0.39);    
+    --5-box: rgba(73, 71, 62, 0.13);    
     --5-aba-rec: rgb(255, 255, 255);
     --5-aba-fav: rgb(255, 255, 255);
     --5-nota: #ccc;
@@ -16,7 +16,7 @@ html[data-theme="light"] {
 
 html[data-theme="dark"] {
    
-    --5-box: rgba(48, 38, 26, 0.678);    
+     
     --5-menu-text: rgb(146, 143, 143);
     --5-border: #f07b0d56;    
     --5-box: rgba(87, 84, 81, 0.425); 
@@ -43,6 +43,8 @@ html[data-theme="dark"] {
   margin: auto;
   width: 95%;
 }
+
+
 
 .pass {
   background-color: var(--5-box);

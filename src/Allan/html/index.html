@@ -28,18 +28,20 @@
             <p><i class="fa fa-2x fa-user"></i></br> Conta</p>
             <p><i class="fa fa-2x fa-circle-o"></i></br>Canvas</p>
            <!-- <p id="recentes" onclick="openRec()"><i class="fa fa-2x fa-clock-o"></i></br>Recentes</p>-->
-            <p id="favoritos" onclick="openFav()"><i class="fa fa-2x fa-star-o"></i></br>Favoritos</p>
+           <!-- <p id="favoritos" onclick="openFav()"><i class="fa fa-2x fa-star-o"></i></br>Favoritos</p>-->
             <p><i class="fa fa-2x fa-question-circle"></i></br>Ajuda</p>
-            <p><i id="aboutico" class="fa fa-2x fa-info"></i></br>About</p>
+            <p><i class="fa fa-2x fa-info"></i></br>About</p>
         </nav>
 
 
 
         <div>
+            <!--
             <div id="mySidefav" class="sidefav">
+                <i class="fa fa-2x fa-eraser" aria-hidden="true"  onclick="eraseFav()"><span id="limp-fav">Apagar</span></i>
                 <a href="javascript:void(0)" class="closebtn" onclick="closeFav()">&times;</a>
-                <a href="#">Favoritos</a>
-                <li id="myafav"></li>
+               <spam id="title-fav">Favoritos</spam> 
+                <spam id="myafav"></spam>
                 
             </div>
             
@@ -48,7 +50,7 @@
                 <a href="#">Recentes</a>
 
             </div>
-            
+            -->
 
             <div class="toggler-container">
                 <div id="theme-toggler">
@@ -126,18 +128,14 @@
                             <span id="ativado" class="ativado"></span>
                             <div class="caret"></div>
                         </div>
-                        <ul id="menu" class="menu">
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                        </ul>
+                        <div id="menu" class="menu">
+                            <ul id="li_dropdown"></ul>
+                           
+                        </div>
                     </div>
                     <table class="avalia notas-cabecalho">
                         <tr>
-                            <th id="tit-hab">Habilidades</th>
+                            <th id="tit-hab">Competência </th>
                             <th>Status</th>
                         </tr>
                     </table>
@@ -166,27 +164,6 @@
 <script src="../js/datas.js"></script>
 <script src="../API_Canvas/assigments.js"></script>
 <script src="../API_Canvas/notas/grades.js"></script>
-
-
-<script>
-    var  resposta = fetch('https://pucminas.instructure.com/api/v1/courses/87896', {
-    method: 'GET',
-    headers: {
-        'Authorization': 'Bearer 11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3BvdgL',
-       // 
-    }
-})
-.then(function() {
-  texto = document.getElementById(aboutico)
-  texto.innerHTML = JSON.parse(resposta)
-}).catch(function () {
-  texto = document.getElementById(aboutico)
-  texto.innerHTML = JSON.parse(resposta)
-});
-
-console.log("teste")
-
-</script>
 
 
 

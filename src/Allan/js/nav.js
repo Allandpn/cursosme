@@ -2,6 +2,8 @@
 
 /* Abri janela Recentes e ativa evento de escuta (click) */
 
+
+
 const openRec = () => {
 
   let transp = document.querySelector(".transparencia");
@@ -23,7 +25,7 @@ const openRec = () => {
     mySiderec.style.left = "84px";
     mySiderec.style.width = "250px";
 
-
+    
 
     setTimeout(() => { document.addEventListener('click', handleCloseRec, false) }, 200);
   }
@@ -66,7 +68,7 @@ function closeRec() {
 
 const openFav = () => {
 
-  let transp = document.getElementById("transparencia");
+  
   let mySidefav = document.getElementById("mySidefav");
   let mySiderec = document.getElementById("mySiderec");
 
@@ -85,6 +87,21 @@ const openFav = () => {
 
     setTimeout(() => { document.addEventListener('click', handleCloseFav, false) }, 200);
   }
+
+  try{
+  list_fav = JSON.parse(localStorage.getItem('lista_fav'))
+  _list_fav = ""
+ 
+
+  for (i = 0; i < list_fav.length; i++) {   
+        _list_fav += `<a class="link_fav" href="${list_fav[i].link}" target="_blank">${list_fav[i].nome}</a>`    
+}
+
+$('#myafav').html(_list_fav)
+
+  } catch{}
+
+  
 }
 
 
@@ -112,12 +129,29 @@ const handleCloseFav = (event) => {
 
 function closeFav() {
   document.getElementById("mySidefav").style.width = "0";
-  document.getElementById("transparencia").style.width = "0%"
+ 
 
   document.removeEventListener('click', handleCloseFav, false);
 }
 
 
 
+function eraseFav(){
 
+let list = document.getElementById('myafav')
+
+console.log(list)
+
+if(list.parentNode){
+  list.parentNode.removeChild(list)
+}
+
+star = document.querySelectorAll('.fa-star-o')
+star.forEach(element => {
+  element.classList.replace("fa-star", "fa-star-o")
+});
+
+  localStorage.removeItem('lista_fav')
+
+}
 

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto3a</title>
+
+    <style>
+        body {
+
+            background-image: url("Allan/imagens/background.jpg");
+        }
+
+        .main {
+            background-color: rgba(219, 219, 219, 0.459);
+            display: block;
+            width: 600px;
+            margin-top: 30vh;
+            margin-left: auto;
+            margin-right: auto;
+            height: 150px;
+            box-shadow: 2px 2px 5px #00000067;
+            border-radius: 5px;
+            border: 0.5px solid #ffffff3d;
+
+        }
+
+        #token {
+            display: block;
+            width: 550px;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+
+
+        }
+
+        .wrap {
+            display: block;
+            width: 500px;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+
+            text-align: center;
+        }
+
+        #btnAluno {
+            margin-right: 100px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <input type="text" name="token" id="token" placeholder="token">
+        <div class="wrap">
+            <button id="btnAluno" onclick="telaAlun()">Area do Aluno</button>
+            <button id="btnProfessor" onclick="telaProf()">Area do Professor</button>
+        </div>
+    </div>
+
+</body>
+
+<script>
+
+    const token = document.querySelector('#token')
+
+    async function telaAlun() {       
+
+        await localStorage.setItem('token', JSON.stringify(token.value))
+
+        await acessToken(token.value)
+
+
+    }
+
+
+    async function telaProf() {
+  
+
+        await localStorage.setItem('token', JSON.stringify(token.value))
+
+        await acessTokenProf(token.value)
+    }
+
+
+
+
+    function acessToken(token) {
+
+
+
+        if (res = fetch('https://pucminas.instructure.com/api/v1/users/self',
+            {
+                method: "get",
+                headers: {
+
+                    "Authorization": `Bearer ${token}`
+                },
+            })) {
+
+            window.location.href = 'Allan/html/index.html';
+
+        }
+
+
+    }
+
+    function acessTokenProf(token) {
+
+
+
+        if (res = fetch('https://pucminas.instructure.com/api/v1/users/self',
+            {
+                method: "get",
+                headers: {
+
+                    "Authorization": `Bearer ${token}`
+                },
+            })) {
+
+            window.location.href = 'NiKolas/html/index-adim.html';
+
+        }
+
+
+    }
+
+
+
+</script>
+
+</html>

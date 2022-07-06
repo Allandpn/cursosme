@@ -6,7 +6,7 @@ html[data-theme="light"] {
     --1-dd-box-color: rgb(253, 253, 253);
     --1-dd-box-shadow: rgba(220, 232, 241, 0.3);
     --1-dd-box-text: rgb(94, 119, 140);
-    --1-dd-ative-box: rgb(94, 119, 140);
+    --1-dd-ative-box: rgba(94, 119, 140, 0.87);
     --1-dd-hover-tex: rgb(255, 255, 255);
     --1-dd-hover-box: rgba(66, 90, 110, 0.925);
     --1-dd-hover-tex2: rgb(181, 189, 194); 
@@ -19,7 +19,7 @@ html[data-theme="dark"] {
     --1-dd-box-shadow: rgba(245, 245, 245, 0.2);
     --1-dd-box-text: rgb(157, 159, 165);
     --1-dd-ative-box: rgb(27, 27, 27);
-    --1-dd-hover-tex: #f07b0d;
+    --1-dd-hover-tex: #dad9d8;
     --1-dd-hover-box: rgba(61, 61, 61, 0.9);
     --1-dd-hover-tex2: rgb(146, 146, 146);   
     

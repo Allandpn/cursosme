@@ -15,7 +15,7 @@ html[data-theme="light"] {
     --1-menu-text-p: rgb(77, 109, 121);
     --1-menu-selecao: #8d4603;
     --1-box-sombra: rgba(129, 129, 129, 0.5);
-    --1-boxes-fundo: #ffffff;
+    --1-boxes-fundo: rgb(233, 233, 233);
     --1-body-fundo: #ffffff;
     
 
@@ -30,7 +30,7 @@ html[data-theme="dark"] {
     --1-menu-text: rgb(20, 20, 20);
     --1-menu-text-p: rgb(197, 197, 197);
     --1-menu-selecao: #f07b0d;
-    --1-box-sombra: #f07b0d81;
+    --1-box-sombra: #58585750;
     --1-boxes-fundo: #181717;
     --1-body-fundo: #050505;    
     
@@ -49,7 +49,11 @@ html[data-theme="dark"] {
 /* Formata Área Principal */
 
 body {
-    background-color: var(--1-boxes-fundo);
+   /* background-image: url("../imagens/background.jpg"); */
+   background-image: url("../imagens/background.png");
+   
+   /*  background-color: var(--1-boxes-fundo); */
+    
 }
 
 
@@ -105,6 +109,7 @@ main header hr {
 
 
 #conteudo {
+    
     position: relative;
     display: block;
     top: 5px;
@@ -126,6 +131,7 @@ main header hr {
     height: 45%;
     float: right;
     z-index: -2;
+    
 
 
 }
@@ -138,7 +144,8 @@ main header hr {
     height: calc(100% - 12px);
     float: left;
     background-color: var(--1-boxes-fundo);
-    
+    border-radius: 10px;
+   
     
     
 
@@ -152,7 +159,7 @@ main header hr {
     height: calc(100% - 12px);
     float: right;
     background-color: var(--1-boxes-fundo);
-   
+    border-radius: 10px;
     
     
 }

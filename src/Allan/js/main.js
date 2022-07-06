@@ -2,30 +2,44 @@
 
 function init(){
 
-
-
-
-  //Carrega a lista de atributos
-  //carregaAtri()
-
-  //Preenche caixa DropDown com as Etapas
-
-
-  
-  preencDrop ()
-
-  carregaDatas ()
-
-  carregaAtri()
-
- // _token = '11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3BvdgL'
-
+  const token = JSON.parse(localStorage.getItem('token'))
  
-   
-}
-/*
+  buscaID(token)
 
-*/
+}
+
+
+function buscaID(token) {
+  res = fetch('https://pucminas.instructure.com/api/v1/users/self',
+      {
+          method: "get",
+          headers: {
+
+              "Authorization": `Bearer ${token}`
+          },
+      })
+
+      .then((res) => res.json())
+      .then((data) => {
+
+        cadastoTemas(token, data.id)
+        
+        dropdown_ative (token, data.id)          
+        carregaDatas(token, data.id)
+       
+          
+      })
+
+      .catch((error) => console.log(error.message))
+}
+
+
+
+
+
+
+
+
 
 
 

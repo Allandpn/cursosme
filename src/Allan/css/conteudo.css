@@ -3,11 +3,11 @@
 
 html[data-theme="light"] {
 
-    --2-box-color: rgb(253, 253, 253);  
+    --2-box-color: rgb(233, 233, 233);  
     --2-box-shadow: rgba(94, 119, 140, 0.3);
     --2-box-ativ-shadow: rgba(64, 66, 68, 0.562);
-    --2-box-text: rgb(94, 119, 140);
-    --2-hover-box: rgb(94, 119, 140);
+    --2-box-text: rgb(62, 88, 109);
+    --2-hover-box: rgba(94, 119, 140, 0.801);
     --2-hover-tex: rgb(255, 255, 255);
     --2-transp-info: rgba(143, 32, 32, 0.1);
     --2-star: rgb(0, 0, 0, 0.3);

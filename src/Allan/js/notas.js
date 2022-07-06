@@ -1,226 +1,342 @@
 
-function getData() {
-/*
-    var db_assigments = "" 
-    const token = "11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3BvdgL"
-    db_assigments = fetch('https://pucminas.instructure.com/api/v1/courses/87896/assignments?per_page=2000',
+
+
+async function dropdown_ative(token, id) {
+
+
+
+    
+    res = await fetch('https://pucminas.instructure.com/api/v1/courses/87896/assignments?per_page=2000',
         {
             method: "get",
             headers: {
-              //  'Content-Type' : 'application/json',
-              //  'Content-Type' : 'application/json',
-              //  'Access-Control-Allow-Origin' : '*',
-              //  'Access-Control-Allow-Headers' : '*',
-              //  'Access-Control-Allow-Credentials' :  'true',
+
                 "Authorization": `Bearer ${token}`
             },
         })
-        .then((db_assigments) => db_assigments.json())
+
+
+
+        .then((res) => res.json())
         .then((data) => {
-           // db_assigments = data;
-            console.log(data)
+
+        
+
+            var name = '';
+            var cont = 0
+
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].rubric != undefined) {
+                    name += `<li class="act">${data[i].name}</li>`;
+                }
+                if(data[i].name.includes('etapa 1')){
+                  
+                    cont = cont + i
+                }
+            }
+
+          
+            $('#li_dropdown').html(name)
+            $('#ativado').html(data[cont].name)
+
+            carregaAtri(data, id)
+
+
+
+
+            const dropdowns = document.querySelectorAll(".dropdown");
+
+            var set;
+
+
+            dropdowns.forEach(dropdown => {
+                const ativo = dropdown.querySelector(".ativo");
+                const caret = dropdown.querySelector(".caret");
+                const menu = dropdown.querySelector(".menu");
+                const options = dropdown.querySelectorAll(".act");
+                const ativado = dropdown.querySelector(".ativado");
+
+
+
+                ativo.addEventListener("click", () => {
+
+                    ativo.classList.toggle("ativo-clicked");
+                    caret.classList.toggle("caret-rotate");
+                    menu.classList.toggle("menu-open")
+
+                });
+
+                options.forEach(option => {
+
+
+                    option.addEventListener('click', () => {
+
+
+                        ativado.textContent = option.textContent;
+                        ativo.classList.remove("ativo-clicked");
+                        caret.classList.remove("caret-rotate");
+                        menu.classList.remove("menu-open");
+
+                        options.forEach(option => {
+                            option.classList.remove("active");
+                        });
+
+                        carregaAtri(data, id)
+                    });
+
+                });
+            });
+
         })
+
         .catch((error) => console.log(error.message))
-  */
-
-        console.log('teste')
-  
-  } 
-  
 
 
 
-//Preenche o Dropdown com a Lista de Etapas do aarquivo API_Canvas/assigments.js
-function preencDrop() {
-
-    const db_assigments = ''
-    const token = "11748~KMkhyKZmmpxczIIaViCererBxWNW4uWPC1wOxhsgelK5RPcpHSRjsnvgMs3BvdgL"
-         db_assigments = fetch('https://pucminas.instructure.com/api/v1/courses/87896/assignments?per_page=2000',
-            {
-                method: "get",
-                headers: {
-                  //  'Content-Type' : 'application/json',
-                  //  'Content-Type' : 'application/json',
-                  //  'Access-Control-Allow-Origin' : '*',
-                  //  'Access-Control-Allow-Headers' : '*',
-                  //  'Access-Control-Allow-Credentials' :  'true',
-                    "Authorization": `Bearer ${token}`
-                },
-            })
-            .then((db_assigments) => db_assigments.json())
-            .then((data) => {
-               // db_assigments = data;
-                console.log(data)
-            })
-            .catch((error) => console.log(error.message))
-
-
-    var name = '';
-    var cont = document.querySelectorAll(".menu li")
-    var inic = document.getElementById("ativado");
-    var ind = 0;
-
-
-    for (var i = 0; i < comp.dados.length; i++) {
-        if (comp.dados[i].rubric != undefined) {
-            name = `<li class="act">${comp.dados[i].name}</li>`;
-            cont[ind].innerHTML = name
-            ind++
-        }
-    }
-    //Define o valor inicial da caixa dropdrwon
-    inic.innerHTML = cont[0].innerHTML
-    inic.style.listStyle = 'none';
 }
 
 
 
-
 //Busca a lista de rúbricas no arquivo API_Canvas/assigments.js
-function carregaAtri() {
+function carregaAtri(data, id) {
+
     var compet = []
     var ind = 0
-    
+    rubricas_etp = []
+
     var select = document.querySelector("#ativado").textContent
-    for (v = 0; v < comp.dados.length; v++) {
-        if (comp.dados[v].rubric != undefined) {
-            id_curso = comp.dados[v].id
-            ind_dados = v
 
-            rubricas_etp = retornaRubrica(id_curso, ind_dados)
+    rubricas_etp = retornaRubrica(data, select, id)
 
-            let atividade = {
-                index: ind + 1,
-                id: comp.dados[v].id,
-                nome: comp.dados[v].name,
-                nota: null,
-                url: comp.dados[v].html_url,
-                rubrica: rubricas_etp
-            }
-            ind++
-            compet.push(atividade)
-        }
-    }
-
-    //preenche a tabela com as habilidades da caixa de seleçao
-    var lista_habilidades = ''
-
-    for (i = 0; i < compet.length; i++) {
-        if (compet[i].nome == select) {
-            for (y = 0; y < compet[i].rubrica.length; y++) {
-                for (x = 0; x < compet[i].rubrica[y].ratings.length; x++) {
-                    switch (compet[i].rubrica[y].ratings[x].points) {
-                        case 0:
-                            lista_habilidades += `<tr>        
-                    <td class="habil">${compet[i].rubrica[y].description}-${compet[i].rubrica[y].long_description}</td>                                 
-                    <td ><div><i class="fa fa-2x fa-battery-empty"></i></div><spam class="descri">${compet[i].rubrica[y].ratings[x].description}</spam></td>                    
-                    </tr>`
-                            break
-                        case 6:
-                            lista_habilidades += `<tr>        
-                    <td class="habil">${compet[i].rubrica[y].description}-${compet[i].rubrica[y].long_description}</td>                                 
-                    <td ><div><i class="fa fa-2x fa-battery-quarter"></i></div><spam class="descri">${compet[i].rubrica[y].ratings[x].description}</spam></td>                    
-                    </tr>`
-                            break
-                        case 10:
-                            lista_habilidades += `<tr>        
-                    <td class="habil">${compet[i].rubrica[y].description}-${compet[i].rubrica[y].long_description}</td>                                 
-                    <td ><div><i class="fa fa-2x fa-battery-three-quarters"></i></div><spam class="descri">${compet[i].rubrica[y].ratings[x].description}</spam></td>                    
-                    </tr>`
-                            break
-                        case 12:
-                            lista_habilidades += `<tr>        
-                    <td class="habil">${compet[i].rubrica[y].description}-${compet[i].rubrica[y].long_description}</td>                                 
-                    <td ><div><i class="fa fa-2x fa-battery-full"></i></div><spam class="descri">${compet[i].rubrica[y].ratings[x].description}</spam></td>                    
-                    </tr>`
-                            break
-                        default:
-                            lista_habilidades += `<tr>        
-                    <td class="habil">${compet[i].rubrica[y].description}-${compet[i].rubrica[y].long_description}</td>                                 
-                    <td ><div><i class="fa fa-2x fa-battery-empty empty-na"></i></div><spam class="descri">${compet[i].rubrica[y].ratings[x].description}</spam></td>                    
-                    </tr>`
-                            break
-                    }
-                }
-            }
-        }
-    }
-    document.getElementById('habilidade').innerHTML = lista_habilidades;
 }
 
 
 
 
 //retorna os habilidades de cada etapa [arquivo assgments.js]
-function retornaRubrica(id, ind) {
-    myarray = []
-    var score = []
+function retornaRubrica(data, select, id) {
+//console.log(data)
 
-    for (h = 0; h < comp.dados[ind].rubric.length; h++) {
-        score = retornaAvaliaRubrica(id, comp.dados[ind].rubric[h].id)
-        if (score.length > 0) {
-            let habil = {
-                id: comp.dados[ind].rubric[h].id,
-                description: comp.dados[ind].rubric[h].description,
-                long_description: comp.dados[ind].rubric[h].long_description,
-                ratings: score
+    myarray = []
+    var _score = []
+    var score = ''
+
+    for (i = 0; i < data.length; i++) {
+        if (data[i].name == select) {
+
+            for (y = 0; y < data[i].rubric.length; y++) {
+
+                let rubric = {
+                    id_curse: data[i].id,
+                    id_rubric: data[i].rubric[y].id,
+                    curta_descri: data[i].rubric[y].description,
+                    loga_descri: data[i].rubric[y].long_description
+                }
+
+                _score.push(rubric)
+
             }
-            myarray.push(habil)
-        } else {
-            let habil = {
-                id: comp.dados[ind].rubric[h].id,
-                description: comp.dados[ind].rubric[h].description,
-                long_description: comp.dados[ind].rubric[h].long_description,
-                ratings: [{
-                    id: null,
-                    description: "N/A",
-                    points: null,
-                    index: null
-                }]
-            }
-            myarray.push(habil)
         }
     }
-    return myarray
+
+
+    score = retornaAvaliaRubrica(_score, data, id)
+
+
+    return score
 }
 
 
 
 //retorna avaliacao das habilidades do arquivo grades.js
-function retornaAvaliaRubrica(idCurso, idRubrica) {
-    pointRub = []
+function retornaAvaliaRubrica(score, data, id) {
 
-    try {
-        for (i = 0; i < db_nota_ativ.length; i++) {
-            if (db_nota_ativ[i].assignment_id == idCurso) {
-                // console.log(db_nota_ativ[i].assignment_id)
-                for (y = 0; y < db_nota_ativ[i].full_rubric_assessment.data.length; y++) {
-                    if (db_nota_ativ[i].full_rubric_assessment.data[y].criterion_id == idRubrica) {
-                        let nota = {
-                            id: db_nota_ativ[i].full_rubric_assessment.data[y].id,
-                            description: db_nota_ativ[i].full_rubric_assessment.data[y].description,
-                            points: db_nota_ativ[i].full_rubric_assessment.data[y].points,
-                            index: y
+    var token = JSON.parse(localStorage.getItem('token'))
+
+
+    var dados = data
+
+    var idcurso = score[0].id_curse
+
+    var pointRub = []
+
+    res = fetch(`https://pucminas.instructure.com/api/v1/courses/87896/assignments/${idcurso}/submissions/${id}?include[]=full_rubric_assessment&per_page=1000`,
+        {
+            method: "get",
+            headers: {
+
+                "Authorization": `Bearer ${token}`
+            },
+        })
+
+
+
+        .then((res) => res.json())
+        .then((data) => {
+
+           
+
+            try {
+
+                for (y = 0; y < score.length; y++) {
+                    for (i = 0; i < data.full_rubric_assessment.data.length; i++) {
+                        if (score[y].id_rubric === data.full_rubric_assessment.data[i].criterion_id) {
+                            let nota = {
+
+                                'id': idcurso,
+                                'description': score[y].curta_descri,
+                                'long_description': score[y].loga_descri,
+                                'points': data.full_rubric_assessment.data[y].points,
+                                'ratings': {
+                                    'id': score[y].id_rubric,
+
+                                    'index': y
+                                }
+
+                            }
+                            pointRub.push(nota)
+
                         }
+
+                    }
+                }
+                if (pointRub.length != score.length) {
+                    for (i = data.full_rubric_assessment.data.length; i < score.length; i++) {
+
+                        let nota = {
+
+                            id: idcurso,
+                            description: score[i].curta_descri,
+                            long_description: score[i].loga_descri,
+                            points: null,
+                            ratings: {
+                                id: null,
+
+                                index: y
+                            }
+
+
+                        }
+
                         pointRub.push(nota)
                     }
                 }
+
+            } catch {
+
+                console.log('2 catch')
+                for (i = 0; i < score.length; i++) {
+                    let nota = {
+
+                        id: idcurso,
+                        description: score[i].curta_descri,
+                        long_description: score[i].loga_descri,
+                        points: null,
+                        ratings: {
+                            id: null,
+
+                            index: y
+                        }
+
+
+                    }
+
+                    pointRub.push(nota)
+                }
             }
-        }
-    } catch {
-        let nota = {
-            id: null,
-            description: "N/A",
-            points: null
-        }
-        pointRub.push(nota)
-    }
-    return pointRub
+
+            montaCurso(pointRub, dados)
+        })
+
+        .catch((error) => console.log(error.message))
 }
 
 
 
 
+function montaCurso(rubricas_etp, data) {
+
+    var compet = []
+    var ind = 0
+
+
+    var select = document.querySelector("#ativado").textContent
+
+    for (v = 0; v < data.length; v++) {
+        if (data[v].name == select) {
+
+            id_curso = data[v].id
+            ind_dados = v
 
 
 
+            let atividade = {
+                index: ind + 1,
+                id: data[v].id,
+                nome: data[v].name,
+                nota: null,
+                url: data[v].html_url,
+                rubrica: rubricas_etp
+            }
+            ind++
+
+            compet.push(atividade)
+        }
+    }
+
+
+    var lista_habilidades = ''
+    objeto = compet[0]
+
+
+
+    for (y = 0; y < compet[0].rubrica.length; y++) {
+
+
+
+
+
+        switch (compet[0].rubrica[y].points) {
+            case 0:
+                lista_habilidades += `<tr>        
+                       <td class="habil">${compet[0].rubrica[y].description}-${compet[0].rubrica[y].long_description}</td>                                 
+                       <td ><div><i class="fa fa-2x fa-battery-empty"></i></div><spam class="descri">${compet[0].rubrica[y].description}</spam></td>                    
+                       </tr>`
+
+                break
+            case 6:
+                lista_habilidades += `<tr>        
+                       <td class="habil">${compet[0].rubrica[y].description}-${compet[0].rubrica[y].long_description}</td>                                 
+                       <td ><div><i class="fa fa-2x fa-battery-quarter"></i></div><spam class="descri">${compet[0].rubrica[y].description}</spam></td>                    
+                       </tr>`
+
+                break
+            case 10:
+                lista_habilidades += `<tr>        
+                       <td class="habil">${compet[0].rubrica[y].description}-${compet[0].rubrica[y].long_description}</td>                                 
+                       <td ><div><i class="fa fa-2x fa-battery-three-quarters"></i></div><spam class="descri">${compet[0].rubrica[y].description}</spam></td>                    
+                       </tr>`
+
+                break
+            case 12:
+                lista_habilidades += `<tr>        
+                       <td class="habil">${compet[0].rubrica[y].description}-${compet[0].rubrica[y].long_description}</td>                                 
+                       <td ><div><i class="fa fa-2x fa-battery-full"></i></div><spam class="descri">${compet[0].rubrica[y].description}</spam></td>                    
+                       </tr>`
+                break
+            default:
+                lista_habilidades += `<tr>        
+                       <td class="habil">${compet[0].rubrica[y].description}-${compet[0].rubrica[y].long_description}</td>                                 
+                       <td ><div><i class="fa fa-2x fa-battery-empty empty-na"></i></div><spam class="descri">${compet[0].rubrica[y].description}</spam></td>                    
+                       </tr>`
+                break
+        }
+    }
+
+
+
+
+    document.getElementById('habilidade').innerHTML = lista_habilidades;
+
+
+}

@@ -161,8 +161,8 @@ transparencia {
     transition: 0.3s; /* 0.5 second transition effect to slide in the sidenav */
     z-index: 3;
     box-shadow: 2px 2px 5px var(--1-box-sombra);
-    color: cadetblue;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: var(--1-box-text);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
   
   /* The navigation menu links */
@@ -217,8 +217,8 @@ transparencia {
     transition: 0.3s; /* 0.5 second transition effect to slide in the sidenav */
     z-index: 2;
     box-shadow: 2px 2px 5px var(--1-box-sombra);
-    color: cadetblue;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: var(--1-box-text);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
   
   /* The navigation menu links */
@@ -275,8 +275,8 @@ transparencia {
   transition: 0.3s; /* 0.5 second transition effect to slide in the sidenav */
   z-index: 3;
   box-shadow: 2px 2px 5px var(--1-box-sombra);
-  color: cadetblue;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: var(--1-box-text);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 /* The navigation menu links */
@@ -332,8 +332,8 @@ transparencia {
   transition: 0.3s; /* 0.5 second transition effect to slide in the sidenav */
   z-index: 3;
   box-shadow: 2px 2px 5px var(--1-box-sombra);
-  color: cadetblue;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: var(--1-box-text);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 /* The navigation menu links */
@@ -387,8 +387,8 @@ transparencia {
   transition: 0.3s; /* 0.5 second transition effect to slide in the sidenav */
   z-index: 3;
   box-shadow: 2px 2px 5px var(--1-box-sombra);
-  color: cadetblue;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: var(--1-box-text);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 /* The navigation menu links */
@@ -442,8 +442,8 @@ transparencia {
     transition: 0.3s; /* 0.5 second transition effect to slide in the sidenav */
     z-index: 2;
     box-shadow: 2px 2px 5px var(--1-box-sombra);
-    color: cadetblue;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: var(--1-box-text);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
   
   /* The navigation menu links */

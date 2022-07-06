@@ -127,7 +127,7 @@ const openAju = () => {
 
   let transp = document.getElementById("transparencia");
   let mySideaju = document.getElementById("mySideaju");
- 
+  
   
 
   if (mySideaju.style.width > "0px") {

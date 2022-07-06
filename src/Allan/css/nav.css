@@ -155,6 +155,28 @@ transparencia {
 
 
 /* janela recolhivel 'Favoritos' */
+#title-fav {
+  color: #a3a2a2;
+  font-size: 22px;
+  margin: auto;
+ 
+}
+.fa-eraser{
+  position: absolute;
+    top: 5px;
+    left: 5px;   
+  color: #a3a2a2;
+  
+}
+
+#limp-fav{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 15px;
+}
+
+.fa-eraser:hover{
+  color: #4e4e4e;
+}
 
 
 .sidefav li {
@@ -175,6 +197,7 @@ transparencia {
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.3s; /* 0.5 second transition effect to slide in the sidenav */
     z-index: 3;
+    text-align: center;
     
   }
   
@@ -186,11 +209,12 @@ transparencia {
     color: #a3a2a2;
     display: block;
     transition: 0.3s;
+    text-align: center;
   }
   
   /* When you mouse over the navigation links, change their color */
   .sidefav a:hover {
-    color: #383d4e;
+    color: #161822;
   }
   
   /* Position and style the close button (top right corner) */
@@ -205,9 +229,7 @@ transparencia {
   .link_fav{
     font-size: 15px !important;
     display: block;
-    white-space: normal;
-    
-   
+    white-space: normal;  
     
   }
 

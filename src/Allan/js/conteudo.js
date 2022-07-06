@@ -2,136 +2,228 @@
 //montagem do curso em ordem cronologica
 var db_curso_ord = JSON.parse(localStorage.getItem('db_curso'))
 
-listarEtapas(db_curso_ord)
+var db_id_unid = JSON.parse(localStorage.getItem('db_idUnids'))
+
+console.log(db_id_unid)
+
+const tema_cadst = []
+
+
+
+for(i=0; i<db_curso_ord.length; i++){
+    for(y=0; y<db_id_unid.length; y++){
+        if(db_curso_ord[i].idUnid == db_id_unid[y].idUnid){
+            db_curso_ord[i].status = db_id_unid[y].status
+        }
+    }
+}
+
+
+
+//listarEtapas(db_curso_ord)
+
+
+
+
+
+
+
+
+
+
+//----------------------------------------------------------\\
+async function cadastoTemas(token, id) {
+
+
+
+    for (i = 0; i < db_id_unid.length; i++) {
+
+        var idcurso = db_id_unid[i].idCurso
+        var idunid = db_id_unid[i].idUnid
+
+        res = await fetch(`https://pucminas.instructure.com/api/v1/courses/${idcurso}/modules/${idunid}/items`,
+            {
+                method: "get",
+                headers: {
+
+                    "Authorization": `Bearer ${token}`
+                },
+            })
+
+            .then((res) => res.json())
+            .then((data) => {
+//console.log(data)
+               
+
+                for (y = 0; y < data.length; y++) {
+
+                    let _tema = {
+                        module_id: data[y].module_id,
+                        title: data[y].title,
+                        html_url: data[y].html_url,
+                        status: data[y].completion_requirement.completed
+                    }                   
+                    tema_cadst.push(_tema)
+                }
+                listarEtapas(token, id)
+                // return tema_cadst
+            })
+
+            .catch((error) => console.log(error.message))
+    }
+
+}
+
 
 
 
 //lista as etapas do curso
-function listarEtapas(db_curso_ord) {
+function listarEtapas(token, id) {
 
     //define lista que conterá as etapas
     var _etapasCurso = ""
     var _microCurso = ""
     var _unidTem
 
-    //Busca as etapas no arquivo etapas.js
-    for (i = 0; i < etapas_curso.length; i++) {
-        if (etapas_curso[i].name.includes("ETAPA")) {
-            _etapasCurso += `<li><div>${etapas_curso[i].name}<br><i class="fa fa-2xs fa-check ${etapas_curso[i].state}"></i></div></li>`
-        }
-    }
-    $('#cur_etapas').html(_etapasCurso)
-
-
-    //cria evento para abrir a DIV Microfundamentos
-    var criaEtapa = document.querySelectorAll("#etapa li");
-
-    for (var i = 0; i < criaEtapa.length; i++) {
-        criaEtapa[i].addEventListener("click", openMic);
-    }
 
 
 
-    $("#cur_etapas li").on("click", function (e) {
+    // --------id do módulo deve ser alterado cada semestre---------------\\
+    res = fetch(`https://pucminas.instructure.com/api/v1/courses/87896/modules`,
+        {
+            method: "get",
+            headers: {
 
-        db_curso_ord.forEach(element => {
-            var statusUnd = ""
-            
-            if (element.unidade.substr(0, element.unidade.indexOf('-', 0)) == "") {
-                _nomeUnd = element.unidade
-            } else {
-                _nomeUnd = element.unidade.substr(0, element.unidade.indexOf('-', 0))
-            }
+                "Authorization": `Bearer ${token}`
+            },
+        })
 
-            if ('ETAPA ' + element.etapa == e.target.innerHTML.substring(0, 7)) {
-                for(i=0; i<unidadesMicro.length; i++){
-                  
-                    if(element.id == unidadesMicro[i].id){
-                        statusUnd = unidadesMicro[i].state
-                    }
+        .then((res) => res.json())
+        .then((data) => {
+        //   console.log(data)
+
+            for (i = 0; i < data.length; i++) {
+                if (data[i].name.includes("ETAPA")) {
+                    _etapasCurso += `<li class="arv_etp_ind"><div>${data[i].name}<br><i class="fa fa-2xs fa-check ${data[i].state}"></i><br></div></li>`
                 }
-                
-                _microCurso += `<li class="list_micro"><div class=" ${element.id} ">${element.nome}<br>- ${_nomeUnd}<br><i class="fa fa-2xs fa-check ${statusUnd}"></i><br></div></li>`
             }
-        });
-        $('#cur_microfundamento').html(_microCurso)
+            $('#cur_etapas').html(_etapasCurso)
 
 
-        _unidTem = _microCurso
+            //cria evento para abrir a DIV Microfundamentos
+            var criaEtapa = document.querySelectorAll("#etapa li");
 
-        //limpa a variavel contendo as unidades
-        _microCurso = ""
-        listaTemas()
-
-        //cria evento para abrir a DIV Temas
-        var criaMicro = document.querySelectorAll("#microfundamento li");
-
-        for (var i = 0; i < criaMicro.length; i++) {
-            criaMicro[i].addEventListener("click", openTem)
-        }
-
-    })
+            for (var i = 0; i < criaEtapa.length; i++) {
+                criaEtapa[i].addEventListener("click", openMic);
+            }
 
 
+//console.log(db_curso_ord)
+            $("#cur_etapas li").on("click", function (e) {
+
+                db_curso_ord.forEach(element => {
+
+                    if (element.unidade.substr(0, element.unidade.indexOf('-', 0)) == "") {
+                        _nomeUnd = element.unidade
+                    } else {
+                        _nomeUnd = element.unidade.substr(0, element.unidade.indexOf('-', 0))
+                    }
+
+                    if ('ETAPA ' + element.etapa == e.target.innerHTML.substring(0, 7)) {
+                    
+
+                        _microCurso += `<li class="list_micro"><div class=" ${element.idUnid} ">${element.nome}<br>- ${_nomeUnd}<br><i class="fa fa-2xs fa-check ${element.status}"></i><br></div></li>`
+                    }
+                });
+                $('#cur_microfundamento').html(_microCurso)
+
+
+                _unidTem = _microCurso
+
+                //limpa a variavel contendo as unidades
+                _microCurso = ""
+                listaTemasa(token)
+
+                //cria evento para abrir a DIV Temas
+                var criaMicro = document.querySelectorAll("#microfundamento li");
+
+                for (var i = 0; i < criaMicro.length; i++) {
+                    criaMicro[i].addEventListener("click", openTem)
+                }
+
+            })
+
+        })
+
+        .catch((error) => console.log(error.message))
 
 }
 
 
 
-function listaTemas() {
+
+
+
+
+function listaTemasa(token) {
+
+
+  console.log( db_id_unid)
 
 
     var _temas = ''
     var _aulasM = []
 
+
+
+
     $("#cur_microfundamento li").on("click", function (e) {
-        unidadesMicro.forEach(element => {
-
-            if (e.target.parentNode.innerHTML.includes(element.id)) {
-
-                var codUnid = element.id
+        db_id_unid.forEach(element => {
+           
+            if (e.target.parentNode.innerHTML.includes(element.idUnid)) {
+                var codUnid = element.idUnid
             }
+       
             var cont = 1
             var contT = 0
-            for (i = 0; i < temasMicro.length; i++) {
-                if (temasMicro[i].module_id == codUnid) {
-                    if (temasMicro[i].title.includes("- Tema")) {
+            for (i = 0; i < tema_cadst.length; i++) {
+                if (tema_cadst[i].module_id == codUnid) {
+                    if (tema_cadst[i].title.includes("- Tema")) {
                         contT++
                     }
-
+               
                     if (contT == 0) {
-
-                        _temas += `<li class="arv_mod_ind "><div><a href="${temasMicro[i].html_url}" class="arv_link_ativ" target="_blank">${temasMicro[i].title}</a><br><i class="fa fa-2xs fa-check ${temasMicro[i].completion_requirement.completed}"></i></div></li>`
-                    } else if (temasMicro[i].title.includes("Tema " + cont)) {
-                        _temas += `<li class="arv_tem_ind"><div>Tema ${cont}<br><i class="fa fa-2xs fa-check ${temasMicro[i].completion_requirement.completed}"></i></div></li>`
+                      
+                        _temas += `<li class="arv_mod_ind "><div><a href="${tema_cadst[i].html_url}" class="arv_link_ativ" target="_blank">${tema_cadst[i].title}</a><br><i class="fa fa-2xs fa-check ${tema_cadst[i].status}"></i></div></li>`
+                    } else if (tema_cadst[i].title.includes("Tema " + cont)) {
+                        _temas += `<li class="arv_tem_ind"><div>Tema ${cont}<br><i class="fa fa-2xs fa-check ${tema_cadst[i].status}"></i></div></li>`
                         cont++
                     } else if (!temasMicro[i].title.includes("Tema")) {
-                        _temas += `<li><div><a href="${temasMicro[i].html_url}" class="arv_link_ativ" target="_blank">${temasMicro[i].title}</a><br><i class="fa fa-2xs fa-check ${temasMicro[i].completion_requirement.completed}"></i></div></li>`
+                        _temas += `<li><div><a href="${tema_cadst[i].html_url}" class="arv_link_ativ" target="_blank">${tema_cadst[i].title}</a><br><i class="fa fa-2xs fa-check ${tema_cadst[i].status}"></i></div></li>`
 
                     }
+
+
 
 
                     contMark = temasMicro[i].title.lastIndexOf('-')
-                   
-                    _nome = temasMicro[i].title.substring(contMark +2)
-                   
-                    
-                    
 
+                    _nome = temasMicro[i].title.substring(contMark + 2)
 
 
                     let aulasM = {
-                        nome: _nome,
-                        title: temasMicro[i].title,
-                        url: temasMicro[i].html_url,
-                        status: temasMicro[i].completion_requirement.completed,
+                        nome: tema_cadst[i].title,
+                        url: tema_cadst[i].html_url,
+                        status: tema_cadst[i].status
                     }
+
 
                     _aulasM.push(aulasM)
                 }
             }
 
         })
+        //    console.log(_temas)
         $('#cur_temas').html(_temas)
 
 
@@ -151,28 +243,35 @@ function listaTemas() {
 
 function listaAulas(aulas) {
 
-   
 
     var _aulas = ''
     $(".arv_tem_ind").on("click", function (e) {
 
-        aulas.forEach(element => {        
-        
-            if (element.title.includes(e.target.textContent)) {
-                _aulas += `<li class="arv_aul_ind "><div><a href="${element.url}" class="arv_link_ativ" target="_blank">${element.nome}</a><br><i class="fa fa-2xs fa-check ${element.status} "></i><i class="fa fa-2xs fa-star-o addfav"></i></div></li>`
-            } 
+        aulas.forEach(element => {
+           
+            if (element.nome.includes(e.target.textContent)) {
+
+                var cont = element.nome.lastIndexOf("-")
+         
+                _nomeUnd = element.nome.substr(element.nome.indexOf('-', cont)+1)
+
+
+                _aulas += `<li class="arv_aul_ind "><div><a href="${element.url}" class="arv_link_ativ" target="_blank">${_nomeUnd}</a><br><i class="fa fa-2xs fa-check ${element.status}"></i><i class="fa fa-2xs "></i></div></li>`
+
+
+
+            }
         });
 
         $('#arv_aulas').html(_aulas)
 
+     
         //limpa a variavel contendo as unidades
         _aulas = ""
-        
     })
 
-    
-
 }
+
 
 
 
@@ -231,7 +330,7 @@ function openEtp() {
 
     }
 
-    
+
 }
 
 
@@ -337,11 +436,12 @@ function openAul() {
 
     }
     //cria evento adicionar aos favoritos
+
     addFav()
 }
 
 
- //Cria evento Coluna 5 
+//Cria evento Coluna 5 
 
 var criaAula = document.querySelectorAll("#aula li");
 for (var i = 0; i < criaAula.length; i++) {
@@ -349,7 +449,7 @@ for (var i = 0; i < criaAula.length; i++) {
 }
 
 function addAula() {
-    
+
 
 }
 
@@ -359,6 +459,75 @@ function addAula() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function addFav() {
+
+    var list_inport = JSON.parse(localStorage.getItem('lista_fav'))
+
+    if (!list_inport) {
+        var list_inport = []
+    }
+
+
+    $(".addfav").on("click", function (e) {
+
+
+        if (this.classList.contains("fa-star-o")) {
+            this.classList.replace("fa-star-o", "fa-star");
+            for (var i = 0; i < temasMicro.length; i++) {
+                if (temasMicro[i].html_url == $(this).siblings('a').attr('href')) {
+                    let favlist = {
+                        nome: temasMicro[i].title,
+                        link: `${$(this).siblings('a').attr('href')}`,
+                        class: "fa-star-o"
+                    }
+                    list_inport.unshift(favlist)
+                }
+            }
+            localStorage.setItem('lista_fav', JSON.stringify(list_inport))
+
+
+        } else {
+
+            this.classList.replace("fa-star", "fa-star-o");
+            for (i = 0; i < list_inport.length; i++) {
+                if (list_inport[i].link == `${$(this).siblings('a').attr('href')}`) {
+                    list_inport.splice(i, 1)
+                }
+            }
+            localStorage.setItem('lista_fav', JSON.stringify(list_inport))
+
+        }
+
+
+
+    })
+
+
+}
+
+
+
+
+
+
+
+
+/*
 function addFav(){
 
     var favoritos = ''
@@ -370,6 +539,10 @@ function addFav(){
             this.classList.replace("fa-star-o", "fa-star");
             for (var i = 0; i < temasMicro.length; i++) {
                 if(temasMicro[i].html_url == $(this).siblings('a').attr('href')){
+                    let favlist ={
+                        nome : temasMicro[i].title,
+                        link: `${$(this).siblings('a').attr('href')}`
+                    }
                     favoritos += `<li ><a class="link_fav" href="${$(this).siblings('a').attr('href')}" target="_blank">${temasMicro[i].title}</a></li>`
                     console.log($(this).siblings('a').attr('href'))
                     console.log(temasMicro[i].title)
@@ -387,11 +560,4 @@ function addFav(){
     
 
 }
-
-
-
-
-
-
-
-
+*/
